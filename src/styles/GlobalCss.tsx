@@ -26,6 +26,20 @@ export const GlobalStyles = StyleSheet.create({
     borderColor: COLOR.walletGray,
     borderWidth: SIZE.moderateScale(2),
   },
+  primaryButton: {
+    height: SIZE.moderateScale(42),
+    backgroundColor: COLOR.primary,
+    borderRadius: SIZE.moderateScale(10),
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+  },
+  primaryButtonText: {
+    fontFamily: FONTS.parkinsansSemiBold,
+    fontSize: FONT_SIZE.font15,
+    color: COLOR.white,
+    lineHeight: SIZE.moderateScale(16),
+  },
   bottomSheetContainer: {
     borderTopLeftRadius: SIZE.moderateScale(20),
     borderTopRightRadius: SIZE.moderateScale(20),

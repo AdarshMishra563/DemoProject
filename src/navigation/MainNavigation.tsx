@@ -45,6 +45,8 @@ import BlogsScreen from '@screens/Blogs';
 import BlogDetailsScreen from '@screens/BlogDetails';
 import TermsAndConditionsScreen from '@screens/TermsAndConditions';
 import PrivacyPolicyScreen2 from '@screens/PrivacyPolicy';
+import CheckoutSummaryScreen2 from '@screens/CheckoutSummary2';
+import CategorySectionScreen from '@screens/CategorySection';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -157,6 +159,8 @@ const AppNavigation = () => {
             <Stack.Screen name="SurveyDetails" component={SurveyDetailsScreen} />
             <Stack.Screen name="Checkout" component={CheckoutScreen} />
             <Stack.Screen name="Checkout2" component={CheckoutSummaryScreen} />
+            <Stack.Screen name="CheckoutSummary2" component={CheckoutSummaryScreen2} />
+            <Stack.Screen name="CategorySection" component={CategorySectionScreen} />
             <Stack.Screen name="CategoryDetails" component={SurveyListScreen} />
             <Stack.Screen name="SearchPage" component={SearchPage} />
             <Stack.Screen name="Blogs" component={BlogsScreen} />

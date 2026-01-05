@@ -23,6 +23,8 @@ const surveyNews = [
       "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800",
     time: "18:24",
     duration: "10 min read",
+    sectionTitle: "Growth",
+    sectionCount: "12",
   },
   {
     id: "2",
@@ -31,7 +33,7 @@ const surveyNews = [
     image:
       "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800",
     time: "17:10",
-    duration: "8 min read",
+    duration: "8 min read", sectionTitle: "Workplace",
   },
   {
     id: "3",
@@ -40,7 +42,7 @@ const surveyNews = [
     image:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800",
     time: "16:05",
-    duration: "6 min read",
+    duration: "6 min read", sectionTitle: "Workplace",
   },
   {
     id: "4",
@@ -50,6 +52,8 @@ const surveyNews = [
       "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800",
     time: "14:42",
     duration: "7 min read",
+    sectionTitle: "Product",
+    sectionCount: "5",
   }, {
     id: "5",
     title:
@@ -75,6 +79,19 @@ const surveyNews = [
       "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800",
     time: "17:10",
     duration: "8 min read",
+    sectionTitle: "Workplace",
+    sectionCount: "8",
+  },
+  {
+    id: "7",
+    title:
+      "Employee Feedback Survey Highlights Critical Workplace Gaps and Productivity Challenges",
+    image:
+      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800",
+    time: "17:10",
+    duration: "8 min read",
+    sectionTitle: "Growth",
+    sectionCount: "12",
   },
 ];
 
@@ -94,9 +111,20 @@ const SurveyListScreen = ({ navigation }: any) => {
       }
     >
       <View style={{ flex: 1 }}>
-        {surveyNews.map((item) => (
+        {surveyNews.map((item: any, index: number) => (
           <View key={item.id}>
-            <CategoryDetailCard item={item} />
+            <CategoryDetailCard
+              item={item}
+              sectionTitle={item.sectionTitle || "Business"}
+              sectionCount={item.sectionCount || "5"}
+              onPress={() => {
+                if (index % 2 === 0) {
+                  navigation.navigate('Checkout2');
+                } else {
+                  navigation.navigate('CheckoutSummary2');
+                }
+              }}
+            />
             <View style={styles.divider} />
           </View>
         ))}
@@ -127,7 +155,6 @@ const styles = StyleSheet.create({
 
   headerTitle: {
     ...GlobalStyles.textSemiBold18,
-    color: COLOR.dark,
   },
 
 

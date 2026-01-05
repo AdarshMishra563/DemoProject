@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { useNavigation } from "@react-navigation/native";
 
 const { width } = Dimensions.get("window");
 
@@ -34,8 +35,10 @@ const data = [
 ];
 
 const ServicesGrid = () => {
+  const navigation = useNavigation<any>();
+
   const renderItem = ({ item }: any) => (
-    <TouchableOpacity activeOpacity={0.8} style={styles.card}>
+    <TouchableOpacity activeOpacity={0.8} style={styles.card} onPress={() => navigation.navigate('AppointmentScreen')}>
       <Icon name={item.icon} size={26} color={COLOR.primary} />
       <Text style={styles.text}>{item.title}</Text>
     </TouchableOpacity>

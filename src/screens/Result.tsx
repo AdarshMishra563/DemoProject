@@ -54,15 +54,12 @@ const CheckoutSummaryScreen = ({ navigation }: any) => {
       </View>
 
       {/* CHECKOUT BUTTON */}
-      <TouchableOpacity onPress={() => { navigate('Checkout') }} style={styles.primaryBtn}>
-        <Feather name="lock" size={16} color="#374151" />
-        <Text style={styles.primaryBtnText}>Button1</Text>
+      <TouchableOpacity onPress={() => { navigation.navigate('NewsDetail') }} style={styles.primaryBtn}>
+        <Feather name="unlock" size={16} color={COLOR.white} />
+        <Text style={styles.primaryBtnText}>Unlocked</Text>
       </TouchableOpacity>
 
-      {/* DISCOUNT BUTTON */}
-      <TouchableOpacity style={styles.discountBtn}>
-        <Text style={styles.discountBtnText}>Button2</Text>
-      </TouchableOpacity>
+
 
       {/* HORIZONTAL SCROLLABLE TABS */}
       <ScrollView
@@ -122,7 +119,7 @@ const CheckoutSummaryScreen = ({ navigation }: any) => {
         {/* DETAILS BUTTON */}
         <TouchableOpacity style={styles.detailsBtn}>
           <Text style={styles.detailsText}>Details</Text>
-          <Feather name="chevron-down" size={14} color="#374151" />
+          <Feather name="chevron-down" size={14} color={COLOR.white} />
         </TouchableOpacity>
       </View>
 
@@ -159,7 +156,7 @@ const CheckoutSummaryScreen = ({ navigation }: any) => {
         {/* DETAILS BUTTON */}
         <TouchableOpacity style={styles.detailsBtn}>
           <Text style={styles.detailsText}>Details</Text>
-          <Feather name="chevron-down" size={14} color="#374151" />
+          <Feather name="chevron-down" size={14} color={COLOR.white} />
         </TouchableOpacity>
       </View>
     </ScrollContainer>
@@ -192,7 +189,7 @@ const styles = StyleSheet.create({
   },
 
   container: {
-    paddingHorizontal: SIZE.moderateScale(24),
+    paddingHorizontal: SIZE.moderateScale(20),
     paddingBottom: SIZE.moderateScale(20),
   },
 
@@ -229,20 +226,15 @@ const styles = StyleSheet.create({
   },
 
   primaryBtn: {
+    ...GlobalStyles.primaryButton,
     flexDirection: "row",
-    backgroundColor: "#E5E7EB",
-    borderRadius: SIZE.moderateScale(12),
-    height: SIZE.moderateScale(48),
-    alignItems: "center",
-    justifyContent: "center",
     gap: SIZE.moderateScale(10),
     marginVertical: SIZE.moderateScale(10),
     paddingHorizontal: SIZE.moderateScale(16),
   },
 
   primaryBtnText: {
-    color: "#374151",
-    ...GlobalStyles.textSemiBold13,
+    ...GlobalStyles.primaryButtonText,
   },
 
   discountBtn: {
@@ -301,7 +293,7 @@ const styles = StyleSheet.create({
     marginTop: SIZE.moderateScale(8),
     ...GlobalStyles.textRegular12,
     color: COLOR.darkGrey,
-    lineHeight: SIZE.moderateScale(18), // 22 -> 18
+    lineHeight: SIZE.moderateScale(18),
   },
 
   statsRow: {
@@ -338,19 +330,14 @@ const styles = StyleSheet.create({
   },
 
   detailsBtn: {
+    ...GlobalStyles.primaryButton,
     flexDirection: "row",
-    alignItems: "center",
     marginTop: SIZE.moderateScale(16),
     gap: SIZE.moderateScale(6),
-    backgroundColor: "#E5E7EB",
-    paddingVertical: SIZE.moderateScale(12),
     paddingHorizontal: SIZE.moderateScale(16),
-    borderRadius: SIZE.moderateScale(12),
-    justifyContent: "center",
   },
 
   detailsText: {
-    ...GlobalStyles.textSemiBold13,
-    color: "#374151",
+    ...GlobalStyles.primaryButtonText,
   },
 });

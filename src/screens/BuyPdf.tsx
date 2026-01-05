@@ -15,9 +15,11 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import { COLOR, FONTS, FONT_SIZE, SIZE } from "@utils/Constant";
 import { useNavigation } from "@react-navigation/native";
 import { GlobalStyles } from '@styles/GlobalCss';
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const AppointmentScreen = () => {
     const navigation = useNavigation();
+    const insets = useSafeAreaInsets();
 
     return (
         <ScrollContainer
@@ -33,7 +35,7 @@ const AppointmentScreen = () => {
                 </View>
             }
             footer={
-                <View style={styles.footer}>
+                <View style={[styles.footer, {}]}>
                     <View style={styles.priceContainer}>
                         <Text style={styles.priceLabel}>Total Price</Text>
                         <Text style={styles.priceValue}>$49.99</Text>
@@ -300,7 +302,7 @@ const styles = StyleSheet.create({
     footer: {
         backgroundColor: COLOR.white,
         paddingHorizontal: SIZE.moderateScale(20),
-        paddingVertical: SIZE.moderateScale(16),
+        paddingVertical: SIZE.moderateScale(10),
         borderTopWidth: 1,
         borderTopColor: COLOR.grayLight,
         flexDirection: "row",
@@ -335,21 +337,20 @@ const styles = StyleSheet.create({
     },
     previewButton: {
         backgroundColor: "#EFF6FF", // Light blue
-        width: SIZE.moderateScale(48),
-        height: SIZE.moderateScale(48),
+        width: SIZE.moderateScale(45),
+        height: SIZE.moderateScale(45),
         paddingVertical: 0, // Reset for circle/square
         paddingHorizontal: 0,
     },
     buyButton: {
-        backgroundColor: COLOR.primary,
-        paddingHorizontal: SIZE.moderateScale(20),
+        ...GlobalStyles.primaryButton,
         gap: SIZE.moderateScale(8),
         flex: 1, // Only if you want it to stretch, otherwise remove
         maxWidth: SIZE.moderateScale(200),
+        flexDirection: 'row', // Ensure row layout for icon + text
     },
     buyButtonText: {
-        ...GlobalStyles.textSemiBold14,
-        color: COLOR.white,
+        ...GlobalStyles.primaryButtonText,
     },
 });
 

@@ -56,7 +56,7 @@ const SurveyDetailsScreen = ({ navigation }: any) => {
       }
       scrollStyle={styles.container}
       footer={
-        <View style={[styles.bottomBtnWrapper, { bottom: insets.bottom + 5 }]}>
+        <View style={[styles.bottomBtnWrapper]}>
           <View style={styles.buttonRow}>
             <TouchableOpacity
               style={[

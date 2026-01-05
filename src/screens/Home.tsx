@@ -23,6 +23,7 @@ import { COLOR, FONT_SIZE, FONTS, SIZE } from "@utils/Constant";
 import BusinessCardsScreen from "./ScaledScroll";
 import ServicesGrid from "@components/CategoryComponent";
 import CategoryCard from "../components/CategoryCard";
+import { CategoryDetailCard } from "@components/CategoryDetailCard";
 import { GlobalStyles } from '@styles/GlobalCss';
 
 const { width } = Dimensions.get("window");
@@ -40,7 +41,7 @@ interface RootState {
 const categories = [
   {
     id: 1,
-    name: "Driving Licence",
+    name: "Driving Licence Card",
     type: 'driving' as const,
     icon: "card-account-details-outline",
     badgeIcon: "car",
@@ -50,7 +51,7 @@ const categories = [
   },
   {
     id: 2,
-    name: "Business Licence",
+    name: "New Business Licence",
     type: 'business' as const,
     icon: "business-center",
     badgeIcon: "verified",
@@ -60,7 +61,7 @@ const categories = [
   },
   {
     id: 3,
-    name: "Commercial Licence",
+    name: "Commercial Trade Licence",
     type: 'commercial' as const,
     icon: "office-building-outline",
     badgeIcon: "store",
@@ -70,7 +71,7 @@ const categories = [
   },
   {
     id: 4,
-    name: "Agricultural Licence",
+    name: "Agricultural Farm Licence",
     type: 'agricultural' as const,
     icon: "sprout-outline",
     badgeIcon: "leaf",
@@ -80,7 +81,7 @@ const categories = [
   },
   {
     id: 5,
-    name: "Medical Licence",
+    name: "Medical Practice Licence",
     type: 'medical' as const,
     icon: "clipboard-text-outline",
     badgeIcon: "heartbeat",
@@ -90,7 +91,7 @@ const categories = [
   },
   {
     id: 6,
-    name: "Educational Licence",
+    name: "Educational Institute Licence",
     type: 'educational' as const,
     icon: "school-outline",
     badgeIcon: "checkmark-circle",
@@ -100,7 +101,7 @@ const categories = [
   },
   {
     id: 7,
-    name: "Food Licence",
+    name: "Food Safety Licence",
     type: 'food' as const,
     icon: "file-document-outline",
     badgeIcon: "food",
@@ -110,7 +111,7 @@ const categories = [
   },
   {
     id: 8,
-    name: "Media Licence",
+    name: "Digital Media Licence",
     type: 'media' as const,
     icon: "newspaper-variant-outline",
     badgeIcon: "play-circle",
@@ -196,7 +197,7 @@ const bannerImages = [
 const topStories = [
   {
     id: 1,
-    title: "Powerful Hurricane Melissa strengthens as it heads towards Florida coast",
+    title: "Powerful Hurricane Melissa strengthens significantly as it heads slowly towards the densely populated Florida coast this weekend",
     time: "3min ago",
     views: "585K views",
     source: "Post Publishing",
@@ -205,7 +206,7 @@ const topStories = [
   },
   {
     id: 2,
-    title: "Pakistan, South Africa begin build-up to T20 World Cup with series opener",
+    title: "Pakistan and South Africa begin their highly anticipated build-up to the T20 World Cup with this crucial series opener",
     time: "45min ago",
     views: "385K views",
     source: "Post Publishing",
@@ -214,7 +215,7 @@ const topStories = [
   },
   {
     id: 3,
-    title: "Trump to host summit of Central Asian leaders at Mar-a-Lago next month",
+    title: "Trump prepares to host a major summit of Central Asian leaders at his Mar-a-Lago resort early next month",
     time: "45min ago",
     views: "245K views",
     source: "Post Publishing",
@@ -223,7 +224,7 @@ const topStories = [
   },
   {
     id: 4,
-    title: "Gold prices stabilize after hitting record high, analysts predict further rally",
+    title: "Gold prices finally stabilize after hitting a new record high, while top analysts predict a further rally soon",
     time: "3hr ago",
     views: "325K views",
     source: "Financial Times",
@@ -387,56 +388,7 @@ const HomeScreen: React.FC = () => {
     </View>
   );
 
-  // Render Top Story Item
-  const renderStoryItem = (story: typeof topStories[0]) => (
-    <TouchableOpacity
-      key={story.id}
-      style={styles.storyItem}
-      onPress={() => navigation.navigate('NewsDetail', { story })}
-      activeOpacity={0.9}
-    >
-      {/* Image with play icon on right bottom */}
-      <View style={styles.imageContainer}>
-        <ImageBackground
-          source={{ uri: story.image }}
-          style={styles.storyImage}
-          imageStyle={styles.storyImageStyle}
-        >
-          {/* Simple white triangle play icon with duration - no background container */}
-          <View style={styles.playIconContainer}>
-            <Icon name="play" size={12} color="white" /> {/* Reduced by 2 */}
-            <Text style={styles.durationText}>{story.duration}</Text>
-          </View>
-        </ImageBackground>
-      </View>
 
-      {/* Content on right */}
-      <View style={styles.storyContent}>
-        {/* Title - exactly 2 lines starting from top */}
-        <Text style={styles.storyTitle} numberOfLines={2}>
-          {story.title}
-        </Text>
-
-        {/* Time and Views - now positioned just below title */}
-        <View style={styles.timeViewsContainer}>
-          <Text style={styles.timeText}>{story.time}</Text>
-          <View style={styles.dotSeparator} />
-          <Text style={styles.viewsText}>{story.views}</Text>
-        </View>
-
-        {/* Publisher and actions - positioned at bottom */}
-        <View style={styles.publisherActionsRow}>
-          {/* Publisher info without icon */}
-          <View style={styles.publisherContainer}>
-            <Text style={styles.sourceText}>{story.source}</Text>
-            <MaterialIcons name="verified" size={10} color="#2563EB" style={styles.verifiedIcon} /> {/* Reduced by 2 */}
-          </View>
-
-          {/* Action buttons removed as requested */}
-        </View>
-      </View>
-    </TouchableOpacity>
-  );
 
 
   return (
@@ -540,8 +492,9 @@ const HomeScreen: React.FC = () => {
                 key={category.id}
                 category={category}
                 onPress={() => navigation.navigate('CategoryDetails', { category: category.type })}
+                isHome={true}
                 containerStyle={{
-                  width: "25%",
+                  width: "33.33%",
                   marginBottom: SIZE.moderateScale(20),
                 }}
               />
@@ -585,9 +538,29 @@ const HomeScreen: React.FC = () => {
             </Text>
           </View>
 
-          {/* Stories List */}
+          {/* Stories List using CategoryDetailCard */}
           <View style={styles.storiesList}>
-            {topStories.map(renderStoryItem)}
+            {topStories.map((story, index) => (
+              <CategoryDetailCard
+                key={story.id}
+                item={{
+                  id: story.id.toString(),
+                  title: story.title,
+                  image: story.image,
+                  time: story.time,
+                  duration: story.duration,
+                }}
+                sectionTitle="News" // You can make this dynamic if needed
+                sectionCount="12"   // You can make this dynamic if needed
+                onPress={() => {
+                  if (index % 2 === 0) {
+                    navigation.navigate('Checkout2');
+                  } else {
+                    navigation.navigate('CheckoutSummary2');
+                  }
+                }}
+              />
+            ))}
           </View>
         </View>
         <View style={[styles.section, { marginTop: 18 }]}>
@@ -792,8 +765,8 @@ const styles = StyleSheet.create({
 
   // Top Stories Styles - Updated to match image exactly
   storiesList: {
-    gap: SIZE.moderateScale(16),
-    paddingHorizontal: SIZE.moderateScale(8),
+    marginHorizontal: - SIZE.moderateScale(9), marginTop: -12
+
   },
   storyItem: {
     flexDirection: "row",

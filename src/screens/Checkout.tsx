@@ -200,15 +200,11 @@ const styles = StyleSheet.create({
 
   reviewWrapper: {
     marginTop: SIZE.moderateScale(14),
-    height: SIZE.moderateScale(44),
-    borderRadius: SIZE.moderateScale(10),
-    backgroundColor: "#E5E7EB",
-    alignItems: "center",
-    justifyContent: "center",
+    ...GlobalStyles.primaryButton,
+    width: '100%', // Ensure full width if needed, or remove if flex
   },
 
   reviewText: {
-    ...GlobalStyles.textSemiBold14,
-    color: COLOR.dark,
+    ...GlobalStyles.primaryButtonText,
   },
 });

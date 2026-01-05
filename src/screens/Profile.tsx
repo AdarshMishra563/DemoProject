@@ -173,7 +173,7 @@ const ProfileScreen: React.FC = () => {
         </View>
 
         <Text style={styles.userName}>John Doe</Text>
-        <Text style={styles.userEmail}>johndoe@gmail.com</Text>
+        <Text style={styles.userEmail}>johndoe@gmail</Text>
       </View>
 
       {/* First Group - Profile & Payment Method */}
@@ -392,6 +392,7 @@ const styles = StyleSheet.create({
   userEmail: {
     ...GlobalStyles.textRegular14,
     color: COLOR.darkGrey,
+
   },
   // Full width group styling
   fullWidthGroup: {
@@ -525,9 +526,10 @@ const styles = StyleSheet.create({
   },
   confirmButton: {
     flex: 1,
-    paddingVertical: SIZE.moderateScale(12),
-    borderRadius: SIZE.moderateScale(8),
+    height: SIZE.moderateScale(48), // Match Global primaryButton height
+    borderRadius: SIZE.moderateScale(12), // Match Global primaryButton radius
     alignItems: "center",
+    justifyContent: "center", // Ensure text centering
   },
   cancelButton: {
     backgroundColor: COLOR.grayLight,
@@ -536,12 +538,14 @@ const styles = StyleSheet.create({
     backgroundColor: COLOR.error,
   },
   cancelButtonText: {
-    ...GlobalStyles.textSemiBold14,
+    ...GlobalStyles.textSemiBold14, // Match size
     color: COLOR.dark,
+    fontFamily: FONTS.parkinsansSemiBold, // Ensure font matches
   },
   logoutButtonText: {
-    ...GlobalStyles.textSemiBold14,
+    ...GlobalStyles.textSemiBold14, // Match size
     color: COLOR.white,
+    fontFamily: FONTS.parkinsansSemiBold, // Ensure font matches
   },
 });
 

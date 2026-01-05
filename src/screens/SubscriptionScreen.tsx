@@ -7,7 +7,9 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
-
+  Modal,
+  Image,
+  TouchableWithoutFeedback,
 } from 'react-native';
 import { ScrollContainer } from '@components/common/ScrollContainer';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -50,6 +52,7 @@ const plans = [
 
 const SubscriptionScreen = ({ navigation }: any) => {
   const [selected, setSelected] = useState(1);
+  const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <ScrollContainer
@@ -104,7 +107,7 @@ const SubscriptionScreen = ({ navigation }: any) => {
             </View>
           </View>
 
-          <TouchableOpacity onPress={() => { navigate('Checkout2') }} style={styles.subscribeButton}>
+          <TouchableOpacity onPress={() => { setModalVisible(true) }} style={styles.subscribeButton}>
             <Text style={styles.subscribeText}>Buy Now</Text>
             <Icon name="arrow-top-right" size={SIZE.moderateScale(16)} color={COLOR.white} />
           </TouchableOpacity>
@@ -115,6 +118,86 @@ const SubscriptionScreen = ({ navigation }: any) => {
       <Text style={styles.footer}>
         Cancel anytime. Subscription auto-renews unless cancelled.
       </Text>
+
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => setModalVisible(false)}
+      >
+        <TouchableWithoutFeedback onPress={() => setModalVisible(false)}>
+          <View style={styles.modalOverlay}>
+            <TouchableWithoutFeedback onPress={() => { }}>
+              <View style={styles.modalContent}>
+                <Image
+                  source={require('../assets/images/success.png')}
+                  style={styles.successImage}
+                  resizeMode="contain"
+                />
+
+                <Text style={styles.modalTitle}>Order Successful!</Text>
+                <Text style={styles.modalSubtitle}>You have successfully made order</Text>
+
+                <View style={styles.orderDetails}>
+                  <View style={styles.detailRow}>
+                    <Text style={styles.detailLabel}>Order Number</Text>
+                    <Text style={styles.detailValue}>#{plans.find(p => p.id === selected)?.id}60525</Text>
+                  </View>
+                  <View style={styles.detailRow}>
+                    <Text style={styles.detailLabel}>Estimated Time</Text>
+                    <Text style={styles.detailValue}>30 Minutes</Text>
+                  </View>
+                  <View style={styles.detailRow}>
+                    <Text style={styles.detailLabel}>Status</Text>
+                    <Text style={[styles.detailValue, { color: COLOR.success }]}>Confirmed</Text>
+                  </View>
+                </View>
+
+                <View style={styles.stepsContainer}>
+                  {/* Step 1 */}
+                  <View style={styles.stepRow}>
+                    <View style={styles.stepIconActive}>
+                      <Text style={styles.stepNumber}>1</Text>
+                    </View>
+                    <View style={styles.stepTextContainer}>
+                      <Text style={styles.stepTitle}>Order Confirmed</Text>
+                      <Text style={styles.stepSubtitle}>Your order is being prepared</Text>
+                    </View>
+                  </View>
+
+                  {/* Connector Line */}
+                  <View style={styles.stepConnector} />
+
+                  {/* Step 2 */}
+                  <View style={styles.stepRow}>
+                    <View style={styles.stepIconInactive} />
+                    <Text style={styles.stepTitleInactive}>Out for Delivery</Text>
+                  </View>
+
+                  {/* Connector Line */}
+                  <View style={styles.stepConnector} />
+
+                  {/* Step 3 */}
+                  <View style={styles.stepRow}>
+                    <View style={styles.stepIconInactive} />
+                    <Text style={styles.stepTitleInactive}>Delivered</Text>
+                  </View>
+                </View>
+
+                <TouchableOpacity
+                  style={styles.modalButton}
+                  onPress={() => {
+                    setModalVisible(false);
+                    navigation.navigate('Tab', { screen: 'Home' });
+                  }}
+                >
+                  <Text style={styles.modalButtonText}>Back to Home</Text>
+                </TouchableOpacity>
+              </View>
+            </TouchableWithoutFeedback>
+          </View>
+        </TouchableWithoutFeedback>
+      </Modal>
     </ScrollContainer>
   );
 };
@@ -247,5 +330,123 @@ const styles = StyleSheet.create({
     color: COLOR.walletHistoryGrey,
     textAlign: 'center',
     marginTop: 20,
+  },
+
+  /* MODAL STYLES */
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    justifyContent: 'flex-end',
+  },
+  modalContent: {
+    width: '100%',
+    backgroundColor: COLOR.white,
+    borderTopLeftRadius: SIZE.moderateScale(24),
+    borderTopRightRadius: SIZE.moderateScale(24),
+    padding: SIZE.moderateScale(24),
+    alignItems: 'center',
+    paddingBottom: SIZE.moderateScale(40),
+  },
+  successImage: {
+    width: SIZE.moderateScale(80),
+    height: SIZE.moderateScale(80),
+    marginBottom: SIZE.moderateScale(16),
+  },
+  modalTitle: {
+    ...GlobalStyles.textBold18,
+    color: '#EF4444', // Red color matching image
+    marginBottom: SIZE.moderateScale(8),
+  },
+  modalSubtitle: {
+    ...GlobalStyles.textRegular12,
+    color: COLOR.darkGrey,
+    marginBottom: SIZE.moderateScale(20),
+    textAlign: 'center',
+  },
+  orderDetails: {
+    width: '100%',
+    backgroundColor: '#F9FAFB',
+    borderRadius: SIZE.moderateScale(12),
+    padding: SIZE.moderateScale(12),
+    marginBottom: SIZE.moderateScale(20),
+  },
+  detailRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: SIZE.moderateScale(6),
+  },
+  detailLabel: {
+    ...GlobalStyles.textMedium12,
+    color: COLOR.darkGrey,
+  },
+  detailValue: {
+    ...GlobalStyles.textSemiBold13,
+    color: COLOR.dark,
+  },
+  stepsContainer: {
+    width: '100%',
+    alignItems: 'flex-start',
+    marginBottom: SIZE.moderateScale(20),
+  },
+  stepRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: SIZE.moderateScale(4),
+  },
+  stepIconActive: {
+    width: SIZE.moderateScale(20),
+    height: SIZE.moderateScale(20),
+    borderRadius: SIZE.moderateScale(10),
+    backgroundColor: '#EF4444',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: SIZE.moderateScale(10),
+  },
+  stepNumber: {
+    color: COLOR.white,
+    fontSize: 10,
+    fontWeight: 'bold',
+  },
+  stepTextContainer: {
+    flex: 1,
+  },
+  stepTitle: {
+    ...GlobalStyles.textSemiBold13,
+    color: COLOR.dark,
+  },
+  stepSubtitle: {
+    ...GlobalStyles.textRegular11,
+    color: '#EF4444',
+  },
+  stepConnector: {
+    width: 2,
+    height: SIZE.moderateScale(16),
+    backgroundColor: '#E5E7EB',
+    marginLeft: SIZE.moderateScale(9), // Center with icon
+    marginVertical: SIZE.moderateScale(2),
+  },
+  stepIconInactive: {
+    width: SIZE.moderateScale(20),
+    height: SIZE.moderateScale(20), // Placeholder for icon alignment
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: SIZE.moderateScale(10),
+    backgroundColor: '#E5E7EB', // Inactive dot/circle
+    borderRadius: SIZE.moderateScale(10),
+  },
+  stepTitleInactive: {
+    ...GlobalStyles.textMedium13,
+    color: COLOR.darkGrey,
+  },
+  modalButton: {
+    width: '100%',
+    backgroundColor: COLOR.primary,
+    paddingVertical: SIZE.moderateScale(14),
+    borderRadius: SIZE.moderateScale(12),
+    alignItems: 'center',
+  },
+  modalButtonText: {
+    ...GlobalStyles.textSemiBold14,
+    color: COLOR.white,
   },
 });

@@ -18,9 +18,10 @@ interface CategoryCardProps {
     category: CategoryItem;
     onPress: () => void;
     containerStyle?: ViewStyle;
+    isHome?: boolean;
 }
 
-const CategoryCard: React.FC<CategoryCardProps> = ({ category, onPress, containerStyle }) => {
+const CategoryCard: React.FC<CategoryCardProps> = ({ category, onPress, containerStyle, isHome }) => {
     const mainIconSize = SIZE.moderateScale(26);
     const containerSize = SIZE.moderateScale(58);
 
@@ -46,7 +47,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ category, onPress, containe
     const renderCategoryName = (name: string) => {
         const words = name.split(' ');
 
-        if (words.length === 2) {
+        if (words.length === 2 && !isHome) {
             return (
                 <View style={styles.twoWordContainer}>
                     <Text style={styles.categoryWord} numberOfLines={1}>
@@ -59,9 +60,18 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ category, onPress, containe
             );
         }
 
-        // For single word or more than 2 words, show normally
+        // For words > 2, break after the second word
+        if (words.length > 2 && isHome) {
+            return (
+                <Text style={[styles.categoryName, { width: '95%' }]} numberOfLines={3}>
+                    {words[0]} {words[1]}{'\n'}{words.slice(2).join(' ')}
+                </Text>
+            );
+        }
+
+        // For single word or wrap normally otherwise
         return (
-            <Text style={styles.categoryName} numberOfLines={2}>
+            <Text style={[styles.categoryName, isHome && { width: '90%' }]} numberOfLines={3}>
                 {name}
             </Text>
         );
