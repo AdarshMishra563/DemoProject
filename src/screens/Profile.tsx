@@ -100,7 +100,7 @@ const ProfileScreen: React.FC = () => {
       id: 5,
       title: "Help Center",
       icon: <Icon name="help-circle" size={22} color="#374151" />,
-      onPress: () => Alert.alert("Help", "Help Center button pressed"),
+      onPress: () => navigate("HelpCentre"),
     },
     {
       id: 6,

@@ -32,6 +32,7 @@ import WelcomeScreen from '@screens/WlcomeScreen';
 
 // Import the Category screen (you'll need to create this)
 import AccountScreen from "@screens/Account";
+import HelpCentreScreen from "@screens/HelpCentre";
 import CategoryScreen from '@screens/Category'; // Make sure to create this screen
 import SubscriptionScreen from '@screens/SubscriptionScreen';
 import SurveyListScreen from '@screens/CategoryDetails';
@@ -165,6 +166,7 @@ const AppNavigation = () => {
             <Stack.Screen name="SearchPage" component={SearchPage} />
             <Stack.Screen name="Blogs" component={BlogsScreen} />
             <Stack.Screen name="Account" component={AccountScreen} />
+            <Stack.Screen name="HelpCentre" component={HelpCentreScreen} />
             <Stack.Screen name="BlogDetails" component={BlogDetailsScreen} />
             <Stack.Screen name="PaymentMethod" component={PaymentMethodScreen} />
             <Stack.Screen name="OrderScreen" component={OrderScreen} />
