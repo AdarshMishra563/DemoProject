@@ -11,6 +11,8 @@ import {
 import { ScrollContainer } from '@components/common/ScrollContainer';
 import Feather from "react-native-vector-icons/Feather";
 import { COLOR, FONTS, FONT_SIZE, SIZE } from "@utils/Constant";
+import { GlobalStyles } from '@styles/GlobalCss';
+import { CategoryDetailCard } from '@components/CategoryDetailCard';
 
 const surveyNews = [
   {
@@ -77,33 +79,7 @@ const surveyNews = [
 ];
 
 const SurveyListScreen = ({ navigation }: any) => {
-  const renderItem = ({ item }: any) => {
-    return (
-      <View>
-        <View style={styles.card}>
-          {/* IMAGE */}
-          <Image source={{ uri: item.image }} style={styles.image} />
 
-          {/* CONTENT */}
-          <View style={styles.content}>
-            <Text style={styles.title} numberOfLines={3}>
-              {item.title}
-            </Text>
-
-            {/* META - Changed to left alignment */}
-            <View style={styles.metaRow}>
-              <Text style={styles.metaText}>{item.time}</Text>
-              <Text style={styles.metaDot}>•</Text>
-              <Text style={styles.metaText}>{item.duration}</Text>
-            </View>
-          </View>
-        </View>
-
-        {/* DIVIDER */}
-        <View style={styles.divider} />
-      </View>
-    );
-  };
 
   return (
     <ScrollContainer
@@ -120,19 +96,7 @@ const SurveyListScreen = ({ navigation }: any) => {
       <View style={{ flex: 1 }}>
         {surveyNews.map((item) => (
           <View key={item.id}>
-            <View style={styles.card}>
-              <Image source={{ uri: item.image }} style={styles.image} />
-              <View style={styles.content}>
-                <Text style={styles.title} numberOfLines={3}>
-                  {item.title}
-                </Text>
-                <View style={styles.metaRow}>
-                  <Text style={styles.metaText}>{item.time}</Text>
-                  <Text style={styles.metaDot}>•</Text>
-                  <Text style={styles.metaText}>{item.duration}</Text>
-                </View>
-              </View>
-            </View>
+            <CategoryDetailCard item={item} />
             <View style={styles.divider} />
           </View>
         ))}
@@ -162,60 +126,17 @@ const styles = StyleSheet.create({
   },
 
   headerTitle: {
-    fontSize: FONT_SIZE.font18,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold18,
     color: COLOR.dark,
   },
 
 
-
-  /* CARD */
-  card: {
-    flexDirection: "row",
-    padding: SIZE.moderateScale(16),
-  },
-
-  image: {
-    width: SIZE.moderateScale(82),
-    height: SIZE.moderateScale(82),
-    borderRadius: SIZE.moderateScale(9),
-  },
-
-  content: {
-    flex: 1,
-    marginLeft: SIZE.moderateScale(14),
-    justifyContent: "space-between",
-  },
-
-  title: {
-    fontSize: FONT_SIZE.font12,
-    fontFamily: FONTS.parkinsansSemiBold,
-    color: COLOR.dark,
-    lineHeight: SIZE.moderateScale(17),
-  },
-
-  metaRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    // Changed from justifyContent: "flex-end" to align left
-    justifyContent: "flex-start",
-  },
-
-  metaText: {
-    fontSize: FONT_SIZE.font11,
-    fontFamily: FONTS.parkinsansRegular,
-    color: COLOR.darkGrey,
-  },
-
-  metaDot: {
-    marginHorizontal: SIZE.moderateScale(6),
-    color: COLOR.darkGrey,
-    fontSize: FONT_SIZE.font12,
-  },
 
   divider: {
     height: 1,
     backgroundColor: COLOR.grayLight,
     marginLeft: SIZE.moderateScale(16),
   },
+
+
 });

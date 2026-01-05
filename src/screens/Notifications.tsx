@@ -10,6 +10,7 @@ import { useNavigation } from "@react-navigation/native";
 
 import { COLOR, FONTS, SIZE, FONT_SIZE } from "@utils/Constant";
 import { ScrollContainer } from "@components/common/ScrollContainer";
+import { GlobalStyles } from '@styles/GlobalCss';
 
 const NotificationScreen = () => {
   const navigation = useNavigation();
@@ -208,8 +209,7 @@ const styles = StyleSheet.create({
   headerTitle: {
 
     textAlign: "center",
-    fontSize: FONT_SIZE.font18, // 16 -> 15
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold18,
     color: COLOR.dark
   },
   badge: {
@@ -219,8 +219,7 @@ const styles = StyleSheet.create({
     borderRadius: SIZE.moderateScale(12)
   },
   badgeText: {
-    fontSize: SIZE.moderateScale(9), // 10 -> 9
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold9,
     color: COLOR.white
   },
 
@@ -233,13 +232,11 @@ const styles = StyleSheet.create({
     backgroundColor: COLOR.white
   },
   sectionTitle: {
-    fontSize: FONT_SIZE.font10, // 11 -> 10
-    fontFamily: FONTS.parkinsansMedium,
+    ...GlobalStyles.textMedium10,
     color: COLOR.grey
   },
   markAll: {
-    fontSize: FONT_SIZE.font10, // 11 -> 10
-    fontFamily: FONTS.parkinsansMedium,
+    ...GlobalStyles.textMedium10,
     color: COLOR.primary
   },
 
@@ -278,14 +275,12 @@ const styles = StyleSheet.create({
     paddingRight: SIZE.moderateScale(8)
   },
   cardTitle: {
-    fontSize: FONT_SIZE.font13, // 15 -> 13
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold13,
     color: COLOR.dark,
     marginBottom: SIZE.moderateScale(6)
   },
   cardMessage: {
-    fontSize: FONT_SIZE.font12, // 13 -> 12
-    fontFamily: FONTS.parkinsansRegular,
+    ...GlobalStyles.textRegular12,
     color: COLOR.lightDark,
     lineHeight: SIZE.moderateScale(18) // 20 -> 18
   },
@@ -294,8 +289,7 @@ const styles = StyleSheet.create({
     alignItems: "flex-end"
   },
   time: {
-    fontSize: FONT_SIZE.font10, // 11 -> 10
-    fontFamily: FONTS.parkinsansRegular,
+    ...GlobalStyles.textRegular10,
     color: COLOR.grey
   },
   unreadDot: {

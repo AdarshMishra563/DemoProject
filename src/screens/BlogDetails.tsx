@@ -14,6 +14,7 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { COLOR, FONTS, SIZE, FONT_SIZE } from '@utils/Constant';
 import { ScrollContainer } from '@components/common/ScrollContainer';
+import { GlobalStyles } from '@styles/GlobalCss';
 
 const { width, height } = Dimensions.get("window");
 
@@ -352,8 +353,7 @@ const styles = StyleSheet.create({
     padding: SIZE.moderateScale(4),
   },
   headerTitle: {
-    fontSize: FONT_SIZE.font16, // 18 -> 16
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold16,
     color: COLOR.dark,
   },
   headerRight: {
@@ -378,18 +378,15 @@ const styles = StyleSheet.create({
     borderRadius: SIZE.moderateScale(6),
   },
   categoryBadgeText: {
-    fontSize: FONT_SIZE.font11, // 12 -> 11
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold11,
     color: COLOR.primary,
   },
   dateText: {
-    fontSize: FONT_SIZE.font13, // 14 -> 13
+    ...GlobalStyles.textRegular13, // 14 -> 13
     color: COLOR.darkGrey,
-    fontFamily: FONTS.parkinsansRegular,
   },
   title: {
-    fontSize: FONT_SIZE.font18, // 20 -> 18
-    fontFamily: FONTS.parkinsansBold,
+    ...GlobalStyles.textBold18, // 20 -> 18
     color: COLOR.dark,
     lineHeight: SIZE.moderateScale(26),
     marginBottom: SIZE.moderateScale(16),
@@ -409,9 +406,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   statText: {
-    fontSize: FONT_SIZE.font11, // 12 -> 11
+    ...GlobalStyles.textRegular11, // 12 -> 11
     color: COLOR.darkGrey,
-    fontFamily: FONTS.parkinsansRegular,
   },
   statDivider: {
     width: 1,
@@ -430,8 +426,7 @@ const styles = StyleSheet.create({
     marginTop: 1,
   },
   sectionLabel: {
-    fontSize: FONT_SIZE.font11, // 12 -> 11
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold11, // 12 -> 11
     color: COLOR.darkGrey,
     textTransform: "uppercase",
     letterSpacing: 1,
@@ -455,28 +450,24 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   authorName: {
-    fontSize: FONT_SIZE.font13, // 14 -> 13
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold13, // 14 -> 13
     color: COLOR.dark,
     marginBottom: SIZE.moderateScale(2),
   },
   authorRole: {
-    fontSize: FONT_SIZE.font13, // 14 -> 13
+    ...GlobalStyles.textRegular13, // 14 -> 13
     color: COLOR.primary,
     marginBottom: SIZE.moderateScale(2),
-    fontFamily: FONTS.parkinsansRegular,
   },
   authorCompany: {
-    fontSize: FONT_SIZE.font12, // 13 -> 12
+    ...GlobalStyles.textRegular12, // 13 -> 12
     color: COLOR.darkGrey,
     marginBottom: SIZE.moderateScale(6),
-    fontFamily: FONTS.parkinsansRegular,
   },
   authorBio: {
-    fontSize: FONT_SIZE.font14,
+    ...GlobalStyles.textRegular14,
     lineHeight: SIZE.moderateScale(20),
     color: COLOR.darkGrey,
-    fontFamily: FONTS.parkinsansRegular,
   },
   contentHeader: {
     flexDirection: "row",
@@ -489,8 +480,7 @@ const styles = StyleSheet.create({
     borderBottomColor: COLOR.grayLight,
   },
   contentHeaderTitle: {
-    fontSize: FONT_SIZE.font16, // 18 -> 16
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold16, // 18 -> 16
     color: COLOR.dark,
   },
   readTimeContainer: {
@@ -499,8 +489,7 @@ const styles = StyleSheet.create({
     gap: SIZE.moderateScale(6),
   },
   readTimeText: {
-    fontSize: FONT_SIZE.font14,
-    fontFamily: FONTS.parkinsansMedium,
+    ...GlobalStyles.textMedium14,
     color: COLOR.primary,
   },
   contentContainer: {
@@ -511,17 +500,15 @@ const styles = StyleSheet.create({
     marginBottom: SIZE.moderateScale(16),
   },
   sectionTitle: {
-    fontSize: FONT_SIZE.font15, // 16 -> 15
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold15, // 16 -> 15
     color: COLOR.dark,
     lineHeight: SIZE.moderateScale(24),
   },
   paragraph: {
-    fontSize: FONT_SIZE.font12, // 13 -> 12
+    ...GlobalStyles.textRegular12, // 13 -> 12
     lineHeight: SIZE.moderateScale(20),
     color: COLOR.lightDark,
     marginBottom: SIZE.moderateScale(16),
-    fontFamily: FONTS.parkinsansRegular,
   },
   boldText: {
     fontFamily: FONTS.parkinsansSemiBold,
@@ -533,17 +520,20 @@ const styles = StyleSheet.create({
     paddingLeft: SIZE.moderateScale(4),
   },
   listBullet: {
-    fontSize: FONT_SIZE.font14, // 16 -> 14
+    ...GlobalStyles.textSemiBold14, // 16 -> 14. Should this be SemiBold? User used default Text which is Regular for style? No, usually bullets are boldish. Or use font14 from Global. I'll use textRegular14 or specific size.
+    // Original was font14, no family specified (so default). Wait, default is probably regular. But bullet point usually bold.
+    // Let's use textRegular14 but ensure color matches.
+    // Actually original snippet says `fontSize: FONT_SIZE.font14`.
+    ...GlobalStyles.textRegular14,
     color: COLOR.primary,
     marginRight: SIZE.moderateScale(12),
     lineHeight: SIZE.moderateScale(24),
   },
   listText: {
-    fontSize: FONT_SIZE.font12, // 13 -> 12
+    ...GlobalStyles.textRegular12, // 13 -> 12
     lineHeight: SIZE.moderateScale(20),
     color: COLOR.lightDark,
     flex: 1,
-    fontFamily: FONTS.parkinsansRegular,
   },
   takeawaysSection: {
     backgroundColor: "#F0F9FF",
@@ -561,8 +551,7 @@ const styles = StyleSheet.create({
     marginBottom: SIZE.moderateScale(20),
   },
   takeawaysTitle: {
-    fontSize: FONT_SIZE.font15, // 16 -> 15
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold15, // 16 -> 15
     color: "#0369A1",
   },
   takeawayItem: {
@@ -580,8 +569,7 @@ const styles = StyleSheet.create({
     borderRadius: SIZE.moderateScale(14),
     backgroundColor: COLOR.primary,
     color: COLOR.white,
-    fontSize: FONT_SIZE.font14,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold14,
     textAlign: "center",
     lineHeight: SIZE.moderateScale(28),
     marginRight: SIZE.moderateScale(12),
@@ -590,16 +578,14 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   takeawayItemTitle: {
-    fontSize: FONT_SIZE.font13, // 14 -> 13
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold13, // 14 -> 13
     color: COLOR.dark,
     marginBottom: SIZE.moderateScale(4),
   },
   takeawayItemText: {
-    fontSize: FONT_SIZE.font12, // 13 -> 12
+    ...GlobalStyles.textRegular12, // 13 -> 12
     lineHeight: SIZE.moderateScale(18),
     color: COLOR.darkGrey,
-    fontFamily: FONTS.parkinsansRegular,
   },
   tagsSection: {
     paddingHorizontal: SIZE.moderateScale(20),
@@ -618,9 +604,8 @@ const styles = StyleSheet.create({
     borderRadius: SIZE.moderateScale(8),
   },
   tagText: {
-    fontSize: FONT_SIZE.font13, // 14 -> 13
+    ...GlobalStyles.textRegular13, // 14 -> 13
     color: COLOR.lightDark,
-    fontFamily: FONTS.parkinsansRegular,
   },
   relatedHeader: {
     flexDirection: "row",
@@ -633,13 +618,11 @@ const styles = StyleSheet.create({
     borderTopColor: COLOR.grayLight,
   },
   relatedHeaderTitle: {
-    fontSize: FONT_SIZE.font16, // 18 -> 16
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold16, // 18 -> 16
     color: COLOR.dark,
   },
   viewAllText: {
-    fontSize: FONT_SIZE.font13, // 14 -> 13
-    fontFamily: FONTS.parkinsansMedium,
+    ...GlobalStyles.textMedium13, // 14 -> 13
     color: COLOR.primary,
   },
   relatedPosts: {
@@ -671,8 +654,7 @@ const styles = StyleSheet.create({
     marginBottom: SIZE.moderateScale(6),
   },
   relatedPostCategory: {
-    fontSize: FONT_SIZE.font11,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold11,
     color: COLOR.primary,
     backgroundColor: "#EFF6FF",
     paddingHorizontal: SIZE.moderateScale(6),
@@ -685,13 +667,11 @@ const styles = StyleSheet.create({
     gap: SIZE.moderateScale(4),
   },
   relatedPostReadTime: {
-    fontSize: FONT_SIZE.font11,
+    ...GlobalStyles.textRegular11,
     color: COLOR.darkGrey,
-    fontFamily: FONTS.parkinsansRegular,
   },
   relatedPostTitle: {
-    fontSize: FONT_SIZE.font12, // 13 -> 12
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold12, // 13 -> 12
     color: COLOR.dark,
     lineHeight: SIZE.moderateScale(16),
     marginBottom: SIZE.moderateScale(4),
@@ -702,14 +682,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   relatedPostAuthor: {
-    fontSize: FONT_SIZE.font12,
+    ...GlobalStyles.textRegular12,
     color: COLOR.darkGrey,
-    fontFamily: FONTS.parkinsansRegular,
   },
   relatedPostDate: {
-    fontSize: FONT_SIZE.font11,
+    ...GlobalStyles.textRegular11,
     color: COLOR.grey,
-    fontFamily: FONTS.parkinsansRegular,
   },
 });
 

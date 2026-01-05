@@ -12,6 +12,7 @@ import Feather from "react-native-vector-icons/Feather";
 import { COLOR, FONTS, FONT_SIZE, SIZE } from "@utils/Constant";
 import { navigate } from "@utils/NavigationUtil";
 import { ScrollContainer } from "@components/common/ScrollContainer";
+import { GlobalStyles } from '@styles/GlobalCss';
 
 const CheckoutSummaryScreen = ({ navigation }: any) => {
   const [activeTab, setActiveTab] = useState("Cat 1");
@@ -186,8 +187,7 @@ const styles = StyleSheet.create({
   },
 
   headerTitle: {
-    fontSize: FONT_SIZE.font18,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold18,
     color: COLOR.dark,
   },
 
@@ -213,8 +213,7 @@ const styles = StyleSheet.create({
 
   infoText: {
     marginLeft: SIZE.moderateScale(8),
-    fontSize: FONT_SIZE.font13, // 15 -> 13
-    fontFamily: FONTS.parkinsansRegular,
+    ...GlobalStyles.textRegular13,
     color: COLOR.darkGrey,
   },
 
@@ -243,8 +242,7 @@ const styles = StyleSheet.create({
 
   primaryBtnText: {
     color: "#374151",
-    fontSize: FONT_SIZE.font13, // 15 -> 13
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold13,
   },
 
   discountBtn: {
@@ -256,8 +254,7 @@ const styles = StyleSheet.create({
   },
 
   discountBtnText: {
-    fontSize: FONT_SIZE.font13, // 15 -> 13
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold13,
     color: "#374151",
   },
 
@@ -278,8 +275,7 @@ const styles = StyleSheet.create({
   },
 
   tabText: {
-    fontSize: FONT_SIZE.font13, // 15 -> 13
-    fontFamily: FONTS.parkinsansMedium,
+    ...GlobalStyles.textMedium13,
     color: "#9CA3AF",
   },
 
@@ -297,15 +293,13 @@ const styles = StyleSheet.create({
   },
 
   sectionTitle: {
-    fontSize: FONT_SIZE.font16,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold16,
     color: COLOR.dark,
   },
 
   sectionDesc: {
     marginTop: SIZE.moderateScale(8),
-    fontSize: FONT_SIZE.font12, // 13 -> 12
-    fontFamily: FONTS.parkinsansRegular,
+    ...GlobalStyles.textRegular12,
     color: COLOR.darkGrey,
     lineHeight: SIZE.moderateScale(18), // 22 -> 18
   },
@@ -322,15 +316,13 @@ const styles = StyleSheet.create({
   },
 
   statLabel: {
-    fontSize: FONT_SIZE.font11, // 12 -> 11
-    fontFamily: FONTS.parkinsansMedium,
+    ...GlobalStyles.textMedium11,
     color: "#374151",
     marginBottom: SIZE.moderateScale(4),
   },
 
   statNumber: {
-    fontSize: FONT_SIZE.font13, // 14 -> 13
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold13,
   },
 
   statRed: {
@@ -358,8 +350,7 @@ const styles = StyleSheet.create({
   },
 
   detailsText: {
-    fontSize: FONT_SIZE.font13, // 15 -> 13
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold13,
     color: "#374151",
   },
 });

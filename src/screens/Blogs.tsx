@@ -1,22 +1,21 @@
 import React from "react";
 import { COLOR, FONTS, SIZE, FONT_SIZE } from '@utils/Constant';
+import { GlobalStyles } from '@styles/GlobalCss';
 import {
   View,
   Text,
   StyleSheet,
   Dimensions,
-  Image,
+
   FlatList,
   TouchableOpacity,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Feather from "react-native-vector-icons/Feather";
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import BlogCard from "../components/BlogCard";
 
 const { width } = Dimensions.get("window");
 
-const CARD_WIDTH = (width - 14 * 3) / 2; // 2 cards + spacing
-const CARD_HEIGHT = 270;
 const SPACING = 14;
 
 const blogsData = [
@@ -97,47 +96,13 @@ const blogsData = [
 const BlogsScreen = ({ navigation }: any) => {
   const renderItem = ({ item }: any) => {
     return (
-      <TouchableOpacity
-        activeOpacity={0.8}
+      <BlogCard
+        item={item}
         onPress={() => navigation.navigate("BlogDetails", { blog: item })}
-      >
-        <View style={styles.card}>
-          {/* IMAGE */}
-          <Image source={{ uri: item.image }} style={styles.image} />
-
-          {/* CONTENT */}
-          <View style={styles.content}>
-            {/* TOP CONTENT */}
-            <View style={styles.contentTop}>
-              {/* AUTHOR + DATE */}
-              <View style={styles.authorDateRow}>
-                <View style={styles.authorRow}>
-                  <MaterialIcons name="person" size={14} color="#6B7280" />
-                  <Text style={styles.authorText}>{item.author}</Text>
-                </View>
-                <Text style={styles.date}>{item.date}</Text>
-              </View>
-
-              {/* TITLE */}
-              <Text style={styles.title} numberOfLines={2}>
-                {item.title}
-              </Text>
-
-              {/* DESCRIPTION */}
-              <Text style={styles.subtitle} numberOfLines={2}>
-                {item.subtitle}
-              </Text>
-            </View>
-
-            {/* BOTTOM CONTENT */}
-            <View style={styles.contentBottom}>
-              <TouchableOpacity style={styles.readMoreButton}>
-                <Text style={styles.readMoreText}>Read more</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </View>
-      </TouchableOpacity>
+        containerStyle={{
+          marginBottom: SIZE.moderateScale(SPACING),
+        }}
+      />
     );
   };
 
@@ -194,8 +159,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     flex: 1,
     textAlign: "center",
-    fontSize: FONT_SIZE.font18,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold18,
     color: COLOR.dark,
   },
 
@@ -205,85 +169,4 @@ const styles = StyleSheet.create({
     backgroundColor: COLOR.walletGray,
   },
 
-  /* CARD */
-  card: {
-    width: CARD_WIDTH,
-    height: SIZE.moderateScale(265),
-    backgroundColor: COLOR.white,
-    borderRadius: SIZE.moderateScale(6),
-    overflow: "hidden",
-    borderWidth: 1,
-    borderColor: COLOR.walletGray,
-    marginBottom: SIZE.moderateScale(SPACING),
-  },
-
-  image: {
-    width: "100%",
-    height: SIZE.moderateScale(120),
-  },
-
-  content: {
-    flex: 1,
-    padding: SIZE.moderateScale(10),
-    justifyContent: "space-between",
-  },
-
-  contentTop: {},
-
-  contentBottom: {
-    marginTop: SIZE.moderateScale(4),
-  },
-
-  authorDateRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginBottom: SIZE.moderateScale(6),
-  },
-
-  authorRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: SIZE.moderateScale(4),
-  },
-
-  authorText: {
-    fontSize: FONT_SIZE.font10 * .93,
-    color: COLOR.walletHistoryGrey,
-    fontFamily: FONTS.parkinsansMedium,
-  },
-
-  date: {
-    fontSize: FONT_SIZE.font10 * .95,
-    color: COLOR.grey,
-  },
-
-  title: {
-    fontSize: FONT_SIZE.font13 * 0.95,
-    fontFamily: FONTS.parkinsansSemiBold,
-    color: COLOR.dark,
-    marginBottom: SIZE.moderateScale(6),
-  },
-
-  subtitle: {
-    fontSize: FONT_SIZE.font11 * 0.85,
-    color: COLOR.walletHistoryGrey,
-    lineHeight: SIZE.moderateScale(15),
-    fontFamily: FONTS.parkinsansRegular,
-  },
-
-  readMoreButton: {
-    borderWidth: 1,
-    borderColor: COLOR.lightGray,
-    borderRadius: SIZE.moderateScale(6),
-    paddingHorizontal: SIZE.moderateScale(10),
-    paddingVertical: SIZE.moderateScale(4),
-    alignSelf: "flex-start",
-  },
-
-  readMoreText: {
-    fontSize: FONT_SIZE.font10,
-    color: COLOR.darkGrey,
-    fontFamily: FONTS.parkinsansMedium,
-  },
 });

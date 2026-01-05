@@ -10,6 +10,7 @@ import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context"
 import Feather from "react-native-vector-icons/Feather";
 import { COLOR, FONTS, FONT_SIZE, SIZE } from "@utils/Constant";
 import { ScrollContainer } from "@components/common/ScrollContainer";
+import { GlobalStyles } from '@styles/GlobalCss';
 
 const surveyGroups = [
   {
@@ -171,8 +172,7 @@ const styles = StyleSheet.create({
   },
 
   headerTitle: {
-    fontSize: FONT_SIZE.font18,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold18,
     color: COLOR.dark,
   },
 
@@ -186,16 +186,14 @@ const styles = StyleSheet.create({
   },
 
   surveyTitle: {
-    fontSize: FONT_SIZE.font16,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold16,
     color: COLOR.dark,
     textAlign: "left",
   },
 
   surveyDesc: {
     marginTop: SIZE.moderateScale(8),
-    fontSize: FONT_SIZE.font12,
-    fontFamily: FONTS.parkinsansRegular,
+    ...GlobalStyles.textRegular12,
     color: COLOR.darkGrey,
     lineHeight: SIZE.moderateScale(20),
     textAlign: "left",
@@ -215,8 +213,7 @@ const styles = StyleSheet.create({
   },
 
   metaText: {
-    fontSize: FONT_SIZE.font12,
-    fontFamily: FONTS.parkinsansRegular,
+    ...GlobalStyles.textRegular12,
     color: COLOR.darkGrey,
   },
 
@@ -228,16 +225,14 @@ const styles = StyleSheet.create({
   },
 
   metaTagText: {
-    fontSize: FONT_SIZE.font11,
-    fontFamily: FONTS.parkinsansMedium,
+    ...GlobalStyles.textMedium11,
     color: "#7C3AED",
   },
 
   sectionTitle: {
     marginTop: SIZE.moderateScale(28),
     marginBottom: SIZE.moderateScale(12),
-    fontSize: FONT_SIZE.font15,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold15,
     color: COLOR.dark,
   },
 
@@ -259,8 +254,7 @@ const styles = StyleSheet.create({
   },
 
   groupTitle: {
-    fontSize: FONT_SIZE.font14,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold14,
     color: COLOR.dark,
   },
 
@@ -271,8 +265,7 @@ const styles = StyleSheet.create({
   },
 
   groupMetaText: {
-    fontSize: FONT_SIZE.font12,
-    fontFamily: FONTS.parkinsansRegular,
+    ...GlobalStyles.textRegular12,
     color: COLOR.darkGrey,
   },
 
@@ -307,8 +300,7 @@ const styles = StyleSheet.create({
   },
 
   nextBtnText: {
-    fontSize: FONT_SIZE.font14,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold14,
     color: COLOR.white,
   },
 
@@ -326,8 +318,7 @@ const styles = StyleSheet.create({
   },
 
   submitBtnText: {
-    fontSize: FONT_SIZE.font14,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold14,
     color: COLOR.white,
   },
 });

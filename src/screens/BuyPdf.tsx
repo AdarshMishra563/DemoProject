@@ -14,6 +14,7 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { COLOR, FONTS, FONT_SIZE, SIZE } from "@utils/Constant";
 import { useNavigation } from "@react-navigation/native";
+import { GlobalStyles } from '@styles/GlobalCss';
 
 const AppointmentScreen = () => {
     const navigation = useNavigation();
@@ -153,8 +154,7 @@ const styles = StyleSheet.create({
         borderBottomColor: COLOR.grayLight,
     },
     headerTitle: {
-        fontSize: FONT_SIZE.font18,
-        fontFamily: FONTS.parkinsansSemiBold,
+        ...GlobalStyles.textSemiBold18,
         color: COLOR.dark,
     },
     iconButton: {
@@ -176,8 +176,7 @@ const styles = StyleSheet.create({
         borderColor: COLOR.grayLight,
     },
     containerTitle: {
-        fontSize: FONT_SIZE.font15,
-        fontFamily: FONTS.parkinsansSemiBold,
+        ...GlobalStyles.textSemiBold15,
         color: COLOR.dark,
         marginBottom: SIZE.moderateScale(12),
     },
@@ -204,14 +203,12 @@ const styles = StyleSheet.create({
         marginLeft: SIZE.moderateScale(16),
     },
     docTitle: {
-        fontSize: FONT_SIZE.font15,
-        fontFamily: FONTS.parkinsansSemiBold,
+        ...GlobalStyles.textSemiBold15,
         color: COLOR.dark,
         marginBottom: SIZE.moderateScale(4),
     },
     docSubtitle: {
-        fontSize: FONT_SIZE.font12,
-        fontFamily: FONTS.parkinsansMedium,
+        ...GlobalStyles.textMedium12,
         color: COLOR.darkGrey,
     },
     ratingContainer: {
@@ -220,14 +217,12 @@ const styles = StyleSheet.create({
         marginTop: SIZE.moderateScale(8),
     },
     ratingText: {
-        fontSize: FONT_SIZE.font12,
-        fontFamily: FONTS.parkinsansSemiBold,
+        ...GlobalStyles.textSemiBold12,
         color: COLOR.dark,
         marginLeft: SIZE.moderateScale(4),
     },
     reviewText: {
-        fontSize: FONT_SIZE.font12,
-        fontFamily: FONTS.parkinsansRegular,
+        ...GlobalStyles.textRegular12,
         color: COLOR.darkGrey,
     },
     metaRow: {
@@ -240,14 +235,12 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     metaLabel: {
-        fontSize: FONT_SIZE.font11,
-        fontFamily: FONTS.parkinsansRegular,
+        ...GlobalStyles.textRegular11,
         color: COLOR.darkGrey,
         marginBottom: SIZE.moderateScale(4),
     },
     metaValue: {
-        fontSize: FONT_SIZE.font13,
-        fontFamily: FONTS.parkinsansSemiBold,
+        ...GlobalStyles.textSemiBold13,
         color: COLOR.dark,
     },
     divider: {
@@ -267,8 +260,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     descriptionText: {
-        fontSize: FONT_SIZE.font13,
-        fontFamily: FONTS.parkinsansRegular,
+        ...GlobalStyles.textRegular13,
         color: COLOR.darkGrey,
         lineHeight: SIZE.moderateScale(20),
     },
@@ -278,8 +270,7 @@ const styles = StyleSheet.create({
         marginBottom: SIZE.moderateScale(12),
     },
     featureText: {
-        fontSize: FONT_SIZE.font13,
-        fontFamily: FONTS.parkinsansMedium,
+        ...GlobalStyles.textMedium13,
         color: COLOR.dark,
         marginLeft: SIZE.moderateScale(12),
     },
@@ -290,23 +281,19 @@ const styles = StyleSheet.create({
         marginBottom: SIZE.moderateScale(8),
     },
     priceRowLabel: {
-        fontSize: FONT_SIZE.font13,
-        fontFamily: FONTS.parkinsansRegular,
+        ...GlobalStyles.textRegular13,
         color: COLOR.darkGrey,
     },
     priceRowValue: {
-        fontSize: FONT_SIZE.font14,
-        fontFamily: FONTS.parkinsansMedium,
+        ...GlobalStyles.textMedium14,
         color: COLOR.dark,
     },
     totalLabel: {
-        fontSize: FONT_SIZE.font16,
-        fontFamily: FONTS.parkinsansSemiBold,
+        ...GlobalStyles.textSemiBold16,
         color: COLOR.dark,
     },
     totalValue: {
-        fontSize: FONT_SIZE.font16,
-        fontFamily: FONTS.parkinsansBold,
+        ...GlobalStyles.textBold16,
         color: COLOR.primary,
     },
 
@@ -324,13 +311,11 @@ const styles = StyleSheet.create({
         // No flex: 1 here to keep it tight
     },
     priceLabel: {
-        fontSize: FONT_SIZE.font12,
-        fontFamily: FONTS.parkinsansRegular,
+        ...GlobalStyles.textRegular12,
         color: COLOR.darkGrey,
     },
     priceValue: {
-        fontSize: FONT_SIZE.font18,
-        fontFamily: FONTS.parkinsansBold,
+        ...GlobalStyles.textBold18,
         color: COLOR.dark,
     },
     buttonRow: {
@@ -363,8 +348,7 @@ const styles = StyleSheet.create({
         maxWidth: SIZE.moderateScale(200),
     },
     buyButtonText: {
-        fontSize: FONT_SIZE.font14,
-        fontFamily: FONTS.parkinsansSemiBold,
+        ...GlobalStyles.textSemiBold14,
         color: COLOR.white,
     },
 });

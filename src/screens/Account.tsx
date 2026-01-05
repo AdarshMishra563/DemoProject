@@ -12,6 +12,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import { COLOR, FONTS, FONT_SIZE, SIZE } from "@utils/Constant";
 import { useNavigation } from "@react-navigation/native";
 import { ScrollContainer } from "@components/common/ScrollContainer";
+import { GlobalStyles } from '@styles/GlobalCss';
 
 const AccountScreen = () => {
     const navigation = useNavigation();
@@ -91,8 +92,7 @@ const styles = StyleSheet.create({
         padding: SIZE.moderateScale(4),
     },
     headerTitle: {
-        fontSize: FONT_SIZE.font18,
-        fontFamily: FONTS.parkinsansSemiBold,
+        ...GlobalStyles.textSemiBold18,
         color: COLOR.dark,
     },
     scrollContent: {
@@ -132,9 +132,8 @@ const styles = StyleSheet.create({
         paddingVertical: SIZE.moderateScale(16),
     },
     label: {
-        fontSize: FONT_SIZE.font13,
+        ...GlobalStyles.textMedium13,
         color: COLOR.darkGrey,
-        fontFamily: FONTS.parkinsansMedium,
         marginBottom: SIZE.moderateScale(8),
     },
     valueContainer: {
@@ -145,9 +144,8 @@ const styles = StyleSheet.create({
         marginRight: SIZE.moderateScale(12),
     },
     value: {
-        fontSize: FONT_SIZE.font15,
+        ...GlobalStyles.textMedium15,
         color: COLOR.dark,
-        fontFamily: FONTS.parkinsansMedium,
         flex: 1,
     },
     divider: {

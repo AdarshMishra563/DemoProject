@@ -15,6 +15,8 @@ import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import { COLOR, FONT_SIZE, FONTS, SIZE } from "@utils/Constant";
 import { ScrollContainer } from "@components/common/ScrollContainer";
+import CategoryCard from "../components/CategoryCard";
+import { GlobalStyles } from '@styles/GlobalCss';
 
 const { width } = Dimensions.get("window");
 
@@ -205,63 +207,7 @@ const CategoriesScreen: React.FC = () => {
     }, [])
   );
 
-  // Category Icon Component - Reusable for all categories
-  const CategoryIcon = ({ category }: { category: typeof allCategories[0] }) => {
-    const mainIconSize = SIZE.moderateScale(26);
-    const containerSize = SIZE.moderateScale(58);
 
-    const renderIcon = () => {
-      const commonProps = {
-        size: mainIconSize,
-        color: COLOR.grey,
-      };
-
-      switch (category.iconType as string) {
-        case "MaterialCommunityIcons":
-          return <MaterialCommunityIcons name={category.icon} {...commonProps} />;
-        case "MaterialIcons":
-          return <MaterialIcons name={category.icon} {...commonProps} />;
-        case "Ionicons":
-          return <Ionicons name={category.icon} {...commonProps} />;
-        default:
-          return <MaterialCommunityIcons name={category.icon} {...commonProps} />;
-      }
-    };
-
-    // Function to split category name into words
-    const renderCategoryName = (name: string) => {
-      const words = name.split(' ');
-
-      if (words.length === 2) {
-        return (
-          <View style={styles.twoWordContainer}>
-            <Text style={styles.categoryWord} numberOfLines={1}>
-              {words[0]}
-            </Text>
-            <Text style={styles.categoryWord} numberOfLines={1}>
-              {words[1]}
-            </Text>
-          </View>
-        );
-      }
-
-      // For single word or more than 2 words, show normally
-      return (
-        <Text style={styles.categoryName} numberOfLines={2}>
-          {name}
-        </Text>
-      );
-    };
-
-    return (
-      <View style={styles.categoryIconContainer}>
-        <View style={[styles.iconContainer, { width: containerSize, height: containerSize }]}>
-          {renderIcon()}
-        </View>
-        {renderCategoryName(category.name)}
-      </View>
-    );
-  };
 
   return (
     <ScrollContainer
@@ -274,13 +220,15 @@ const CategoriesScreen: React.FC = () => {
     >
       <View style={styles.categoriesGrid}>
         {allCategories.map((category) => (
-          <TouchableOpacity
+          <CategoryCard
             key={category.id}
-            style={styles.categoryCard}
+            category={category}
             onPress={() => navigation.navigate('CategoryDetails', { category: category.type })}
-          >
-            <CategoryIcon category={category} />
-          </TouchableOpacity>
+            containerStyle={{
+              width: "25%",
+              marginBottom: SIZE.moderateScale(24),
+            }}
+          />
         ))}
       </View>
     </ScrollContainer>
@@ -302,8 +250,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   headerTitle: {
-    fontSize: FONT_SIZE.font18,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold18,
     color: COLOR.dark,
     textAlign: "center",
   },
@@ -320,42 +267,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     marginTop: SIZE.moderateScale(18),
   },
-  categoryCard: {
-    width: "25%",
-    alignItems: "center",
-    marginBottom: SIZE.moderateScale(24),
-  },
-  categoryIconContainer: {
-    alignItems: "center",
-    width: "100%",
-  },
-  iconContainer: {
-    backgroundColor: "#F9FAFB", // light gray, consistent with others? use COLOR.grayLight if appropriate or stick to this hex
-    borderRadius: SIZE.moderateScale(10),
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: SIZE.moderateScale(8),
-    borderWidth: 1,
-    borderColor: COLOR.walletGray,
-  },
-  // Removed badgeContainer styles since we're not using badges anymore
-  twoWordContainer: {
-    alignItems: "center",
-  },
-  categoryWord: {
-    fontSize: SIZE.moderateScale(11),
-    fontFamily: FONTS.parkinsansMedium,
-    color: COLOR.dark,
-    textAlign: "center",
-    lineHeight: SIZE.moderateScale(14),
-  },
-  categoryName: {
-    fontSize: SIZE.moderateScale(11),
-    fontFamily: FONTS.parkinsansMedium,
-    color: COLOR.dark,
-    textAlign: "center",
-    lineHeight: SIZE.moderateScale(14),
-  },
+
 });
 
 export default CategoriesScreen;

@@ -12,6 +12,7 @@ import {
 import { COLOR, FONT_SIZE, FONTS, SIZE } from '@utils/Constant';
 import { navigate } from '@utils/NavigationUtil';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { GlobalStyles } from '@styles/GlobalCss';
 
 const WELCOME_IMAGE = require('@assets/images/welcome.png');
 
@@ -87,16 +88,15 @@ const styles = StyleSheet.create({
     marginTop: SIZE.moderateScale(40),
   },
   topTitle: {
+    ...GlobalStyles.textMedium20,
     color: COLOR.dark,
-    fontFamily: FONTS.parkinsansMedium,
-    fontSize: FONT_SIZE.font20,
     marginBottom: SIZE.moderateScale(8),
   },
   logoContainer: {
     flexDirection: 'row',
   },
   logoPart: {
-    fontFamily: FONTS.parkinsansBold,
+    ...GlobalStyles.textBold22,
     fontSize: FONT_SIZE.font22 * 1.1,
   },
   middleTextContainer: {
@@ -105,16 +105,14 @@ const styles = StyleSheet.create({
   },
   middleTitle: {
     color: COLOR.dark,
-    fontFamily: FONTS.parkinsansBold,
-    fontSize: FONT_SIZE.font20,
+    ...GlobalStyles.textBold20,
     textAlign: 'center',
     marginBottom: SIZE.moderateScale(16),
     lineHeight: SIZE.moderateScale(42),
   },
   middleSubtitle: {
     color: COLOR.dark,
-    fontFamily: FONTS.parkinsansRegular,
-    fontSize: FONT_SIZE.font16,
+    ...GlobalStyles.textRegular16,
     textAlign: 'center',
     lineHeight: SIZE.moderateScale(24),
   },
@@ -139,8 +137,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: COLOR.white,
-    fontFamily: FONTS.parkinsansSemiBold,
-    fontSize: FONT_SIZE.font18,
+    ...GlobalStyles.textSemiBold18,
   },
 });
 

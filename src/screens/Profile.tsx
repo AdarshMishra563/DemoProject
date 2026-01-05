@@ -22,6 +22,7 @@ import { ScrollContainer } from "@components/common/ScrollContainer";
 import { useNavigation } from "@react-navigation/native";
 import { navigate, resetAndNavigate } from "@utils/NavigationUtil";
 import { logout } from "@redux/slice/authSlice";
+import { GlobalStyles } from '@styles/GlobalCss';
 
 const { width } = Dimensions.get("window");
 
@@ -361,8 +362,7 @@ const styles = StyleSheet.create({
     borderBottomColor: COLOR.grayLight,
   },
   headerTitle: {
-    fontSize: FONT_SIZE.font18,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold18,
     color: COLOR.dark,
   },
   scrollView: {
@@ -385,14 +385,12 @@ const styles = StyleSheet.create({
     borderRadius: SIZE.moderateScale(40),
   },
   userName: {
-    fontSize: FONT_SIZE.font20,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold20,
     color: COLOR.dark,
     marginBottom: SIZE.moderateScale(4),
   },
   userEmail: {
-    fontSize: FONT_SIZE.font14,
-    fontFamily: FONTS.parkinsansRegular,
+    ...GlobalStyles.textRegular14,
     color: COLOR.darkGrey,
   },
   // Full width group styling
@@ -421,8 +419,7 @@ const styles = StyleSheet.create({
     width: SIZE.moderateScale(40),
   },
   fullWidthMenuText: {
-    fontSize: FONT_SIZE.font16,
-    fontFamily: FONTS.parkinsansMedium,
+    ...GlobalStyles.textMedium16,
     color: COLOR.dark,
     flex: 1,
   },
@@ -431,8 +428,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   languageText: {
-    fontSize: FONT_SIZE.font14,
-    fontFamily: FONTS.parkinsansMedium,
+    ...GlobalStyles.textMedium14,
     color: COLOR.darkGrey,
     marginRight: SIZE.moderateScale(8),
   },
@@ -443,8 +439,7 @@ const styles = StyleSheet.create({
   },
   versionText: {
     textAlign: "center",
-    fontSize: FONT_SIZE.font12,
-    fontFamily: FONTS.parkinsansRegular,
+    ...GlobalStyles.textRegular12,
     color: COLOR.darkGrey,
     marginTop: SIZE.moderateScale(32),
     marginBottom: SIZE.moderateScale(32),
@@ -475,8 +470,7 @@ const styles = StyleSheet.create({
     borderBottomColor: COLOR.grayLight,
   },
   modalTitle: {
-    fontSize: FONT_SIZE.font18,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold18,
     color: COLOR.dark,
   },
   languageList: {
@@ -492,8 +486,7 @@ const styles = StyleSheet.create({
     borderBottomColor: COLOR.grayLight,
   },
   languageOptionText: {
-    fontSize: FONT_SIZE.font16,
-    fontFamily: FONTS.parkinsansMedium,
+    ...GlobalStyles.textMedium16,
     color: COLOR.dark,
   },
   confirmModal: {
@@ -514,14 +507,12 @@ const styles = StyleSheet.create({
     marginBottom: SIZE.moderateScale(16),
   },
   confirmTitle: {
-    fontSize: FONT_SIZE.font20,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold20,
     color: COLOR.dark,
     marginBottom: SIZE.moderateScale(8),
   },
   confirmMessage: {
-    fontSize: FONT_SIZE.font14,
-    fontFamily: FONTS.parkinsansRegular,
+    ...GlobalStyles.textRegular14,
     color: COLOR.darkGrey,
     textAlign: "center",
     marginBottom: SIZE.moderateScale(24),
@@ -545,13 +536,11 @@ const styles = StyleSheet.create({
     backgroundColor: COLOR.error,
   },
   cancelButtonText: {
-    fontSize: FONT_SIZE.font14,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold14,
     color: COLOR.dark,
   },
   logoutButtonText: {
-    fontSize: FONT_SIZE.font14,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold14,
     color: COLOR.white,
   },
 });

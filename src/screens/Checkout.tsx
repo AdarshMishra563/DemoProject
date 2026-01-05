@@ -10,6 +10,7 @@ import { ScrollContainer } from '@components/common/ScrollContainer';
 import Feather from "react-native-vector-icons/Feather";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { COLOR, FONTS, FONT_SIZE, SIZE } from "@utils/Constant"; // Import FONTS and COLOR
+import { GlobalStyles } from '@styles/GlobalCss';
 
 const DATA = [
   {
@@ -126,8 +127,7 @@ const styles = StyleSheet.create({
   },
 
   headerTitle: {
-    fontSize: FONT_SIZE.font18,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold18,
     color: COLOR.dark,
   },
 
@@ -161,8 +161,7 @@ const styles = StyleSheet.create({
 
   sectionText: {
     marginLeft: SIZE.moderateScale(8),
-    fontSize: FONT_SIZE.font14,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold14,
     color: COLOR.dark,
   },
 
@@ -177,29 +176,25 @@ const styles = StyleSheet.create({
 
   lockText: {
     marginLeft: SIZE.moderateScale(4),
-    fontSize: FONT_SIZE.font12,
-    fontFamily: FONTS.parkinsansMedium,
+    ...GlobalStyles.textMedium12,
     color: COLOR.darkGrey,
   },
 
   rewardText: {
     marginTop: SIZE.moderateScale(10),
-    fontSize: FONT_SIZE.font15,
-    fontFamily: FONTS.parkinsansBold,
+    ...GlobalStyles.textBold15,
     color: COLOR.dark,
   },
 
   descriptionText: {
     marginTop: SIZE.moderateScale(4),
-    fontSize: FONT_SIZE.font13,
-    fontFamily: FONTS.parkinsansRegular,
+    ...GlobalStyles.textRegular13,
     color: COLOR.darkGrey,
   },
 
   payoutText: {
     marginTop: SIZE.moderateScale(4),
-    fontSize: FONT_SIZE.font12,
-    fontFamily: FONTS.parkinsansRegular,
+    ...GlobalStyles.textRegular12,
     color: "#9CA3AF",
   },
 
@@ -213,8 +208,7 @@ const styles = StyleSheet.create({
   },
 
   reviewText: {
-    fontSize: FONT_SIZE.font14,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold14,
     color: COLOR.dark,
   },
 });

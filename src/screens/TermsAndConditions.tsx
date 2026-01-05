@@ -12,6 +12,7 @@ import Icon from 'react-native-vector-icons/Feather';
 import { COLOR, FONTS, FONT_SIZE } from '@utils/Constant';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ScrollContainer } from '@components/common/ScrollContainer';
+import { GlobalStyles } from '@styles/GlobalCss';
 
 const TermsAndConditionsScreen = () => {
   const navigation = useNavigation();
@@ -205,8 +206,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#E5E7EB',
   },
   headerTitle: {
-    fontSize: FONT_SIZE.font18,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold18,
     color: COLOR.dark,
   },
   scrollView: {
@@ -221,19 +221,16 @@ const styles = StyleSheet.create({
     marginVertical: 24,
   },
   appName: {
-    fontSize: FONT_SIZE.font28,
-    fontFamily: FONTS.parkinsansBold,
+    ...GlobalStyles.textBold30, // closest to 28
     color: COLOR.primary,
     marginBottom: 4,
   },
   appTagline: {
-    fontSize: FONT_SIZE.font14,
-    fontFamily: FONTS.parkinsansRegular,
+    ...GlobalStyles.textRegular14,
     color: '#6B7280',
   },
   lastUpdated: {
-    fontSize: FONT_SIZE.font12,
-    fontFamily: FONTS.parkinsansMedium,
+    ...GlobalStyles.textMedium12,
     color: '#9CA3AF',
     textAlign: 'center',
     marginBottom: 24,
@@ -242,14 +239,12 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   sectionTitle: {
-    fontSize: FONT_SIZE.font16,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold16,
     color: COLOR.dark,
     marginBottom: 8,
   },
   paragraph: {
-    fontSize: FONT_SIZE.font14,
-    fontFamily: FONTS.parkinsansRegular,
+    ...GlobalStyles.textRegular14,
     color: '#4B5563',
     lineHeight: 22,
   },
@@ -261,8 +256,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   acceptanceText: {
-    fontSize: FONT_SIZE.font14,
-    fontFamily: FONTS.parkinsansMedium,
+    ...GlobalStyles.textMedium14,
     color: COLOR.dark,
     textAlign: 'center',
     fontStyle: 'italic',
@@ -285,8 +279,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   acceptButtonText: {
-    fontSize: FONT_SIZE.font16,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold16,
     color: COLOR.white,
   },
 });

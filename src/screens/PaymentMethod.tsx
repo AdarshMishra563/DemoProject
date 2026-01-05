@@ -14,6 +14,7 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import { COLOR, FONTS, FONT_SIZE, SIZE } from "@utils/Constant";
 import { useNavigation } from "@react-navigation/native";
 import { ScrollContainer } from "@components/common/ScrollContainer";
+import { GlobalStyles } from '@styles/GlobalCss';
 
 const { width } = Dimensions.get("window");
 
@@ -173,8 +174,7 @@ const styles = StyleSheet.create({
         padding: SIZE.moderateScale(4),
     },
     headerTitle: {
-        fontSize: FONT_SIZE.font18,
-        fontFamily: FONTS.parkinsansSemiBold,
+        ...GlobalStyles.textSemiBold18,
         color: COLOR.dark,
     },
     scrollContent: {
@@ -205,8 +205,7 @@ const styles = StyleSheet.create({
         marginTop: SIZE.moderateScale(20),
     },
     sectionTitle: {
-        fontSize: FONT_SIZE.font16,
-        fontFamily: FONTS.parkinsansBold,
+        ...GlobalStyles.textBold16,
         color: COLOR.dark,
         marginBottom: SIZE.moderateScale(12),
         letterSpacing: 0.3,
@@ -243,14 +242,12 @@ const styles = StyleSheet.create({
         marginRight: SIZE.moderateScale(14),
     },
     cardType: {
-        fontSize: FONT_SIZE.font14,
-        fontFamily: FONTS.parkinsansSemiBold,
+        ...GlobalStyles.textSemiBold14,
         color: COLOR.dark,
         marginBottom: SIZE.moderateScale(2),
     },
     cardNumber: {
-        fontSize: FONT_SIZE.font13,
-        fontFamily: FONTS.parkinsansMedium,
+        ...GlobalStyles.textMedium13,
         color: COLOR.darkGrey,
     },
     defaultBadge: {
@@ -262,8 +259,7 @@ const styles = StyleSheet.create({
         borderRadius: SIZE.moderateScale(20),
     },
     defaultText: {
-        fontSize: FONT_SIZE.font10,
-        fontFamily: FONTS.parkinsansSemiBold,
+        ...GlobalStyles.textSemiBold10,
         color: COLOR.white,
     },
     radioButton: {
@@ -286,8 +282,7 @@ const styles = StyleSheet.create({
         marginTop: SIZE.moderateScale(4),
     },
     addNewText: {
-        fontSize: FONT_SIZE.font14,
-        fontFamily: FONTS.parkinsansMedium,
+        ...GlobalStyles.textMedium14,
         color: COLOR.primary,
     },
     upiContainer: {
@@ -315,8 +310,7 @@ const styles = StyleSheet.create({
     },
     upiText: {
         flex: 1,
-        fontSize: FONT_SIZE.font15,
-        fontFamily: FONTS.parkinsansMedium,
+        ...GlobalStyles.textMedium15,
         color: COLOR.dark,
     }
 });

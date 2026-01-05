@@ -22,6 +22,8 @@ import { useSelector } from "react-redux";
 import { COLOR, FONT_SIZE, FONTS, SIZE } from "@utils/Constant";
 import BusinessCardsScreen from "./ScaledScroll";
 import ServicesGrid from "@components/CategoryComponent";
+import CategoryCard from "../components/CategoryCard";
+import { GlobalStyles } from '@styles/GlobalCss';
 
 const { width } = Dimensions.get("window");
 
@@ -338,66 +340,10 @@ const HomeScreen: React.FC = () => {
     return () => clearInterval(interval);
   }, [currentIndex, autoScrollDirection]);
 
-  // Category Icon Component - Reusable for both Categories and Courses
-  const CategoryIcon = ({ category }: { category: typeof categories[0] | typeof courses[0] }) => {
-    const mainIconSize = SIZE.moderateScale(26);
-    const containerSize = SIZE.moderateScale(58);
 
-    const renderIcon = () => {
-      const commonProps = {
-        size: mainIconSize,
-        color: COLOR.grey,
-      };
 
-      switch (category.iconType as string) {
-        case "MaterialCommunityIcons":
-          return <MaterialCommunityIcons name={category.icon} {...commonProps} />;
-        case "MaterialIcons":
-          return <MaterialIcons name={category.icon} {...commonProps} />;
-        case "Ionicons":
-          return <Ionicons name={category.icon} {...commonProps} />;
-        default:
-          return <MaterialCommunityIcons name={category.icon} {...commonProps} />;
-      }
-    };
-
-    // Function to split category name into words
-    const renderCategoryName = (name: string) => {
-      const words = name.split(' ');
-
-      if (words.length === 2) {
-        return (
-          <View style={styles.twoWordContainer}>
-            <Text style={styles.categoryWord} numberOfLines={1}>
-              {words[0]}
-            </Text>
-            <Text style={styles.categoryWord} numberOfLines={1}>
-              {words[1]}
-            </Text>
-          </View>
-        );
-      }
-
-      // For single word or more than 2 words, show normally
-      return (
-        <Text style={styles.categoryName} numberOfLines={2}>
-          {name}
-        </Text>
-      );
-    };
-
-    return (
-      <View style={styles.categoryIconContainer}>
-        <View style={[styles.iconContainer, { width: containerSize, height: containerSize }]}>
-          {renderIcon()}
-        </View>
-        {renderCategoryName(category.name)}
-      </View>
-    );
-  };
-
-  // Category Card Component
-  const CategoryCard = ({ title, image }: { title: string; image: string }) => {
+  // Trending Card Component (formerly local CategoryCard)
+  const TrendingCard = ({ title, image }: { title: string; image: string }) => {
     return (
       <View style={categoryStyles.outerContainer}>
         {/* Image Container */}
@@ -590,13 +536,15 @@ const HomeScreen: React.FC = () => {
           {/* Categories Grid - 4 items per row without horizontal spacing */}
           <View style={styles.categoriesGrid}>
             {categories.map((category) => (
-              <TouchableOpacity
+              <CategoryCard
                 key={category.id}
-                style={styles.categoryCard}
+                category={category}
                 onPress={() => navigation.navigate('CategoryDetails', { category: category.type })}
-              >
-                <CategoryIcon category={category} />
-              </TouchableOpacity>
+                containerStyle={{
+                  width: "25%",
+                  marginBottom: SIZE.moderateScale(20),
+                }}
+              />
             ))}
           </View>
         </View>
@@ -622,7 +570,7 @@ const HomeScreen: React.FC = () => {
                 style={styles.trendingCardWrapper}
                 onPress={() => navigation.navigate('SurveyDetails', { item })}
               >
-                <CategoryCard title={item.title} image={item.image} />
+                <TrendingCard title={item.title} image={item.image} />
 
               </TouchableOpacity>
             ))}
@@ -697,14 +645,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   welcomeText: {
-    fontSize: FONT_SIZE.font18,
-    fontFamily: FONTS.parkinsansBold,
+    ...GlobalStyles.textBold18,
     color: COLOR.white,
     marginBottom: SIZE.moderateScale(2),
   },
   userName: {
-    fontSize: SIZE.moderateScale(12),
-    fontFamily: FONTS.parkinsansMedium,
+    ...GlobalStyles.textMedium12,
     color: COLOR.white,
   },
   stickyHeaderPlaceholder: {
@@ -730,9 +676,8 @@ const styles = StyleSheet.create({
   },
   searchPlaceholder: {
     flex: 1,
+    ...GlobalStyles.textRegular13,
     color: COLOR.darkGrey,
-    fontFamily: FONTS.parkinsansRegular,
-    fontSize: SIZE.moderateScale(13),
   },
   bannerFlatListContainer: {
     marginBottom: SIZE.moderateScale(25),
@@ -758,16 +703,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   bannerTitle: {
-    fontSize: SIZE.moderateScale(18),
-    fontFamily: FONTS.parkinsansBold,
+    ...GlobalStyles.textBold18,
     color: COLOR.white,
     top: SIZE.moderateScale(36),
     marginBottom: SIZE.moderateScale(4),
   },
   bannerSubtitle: {
-    fontSize: SIZE.moderateScale(12),
+    ...GlobalStyles.textRegular12,
     top: SIZE.moderateScale(36),
-    fontFamily: FONTS.parkinsansRegular,
     color: COLOR.white,
     opacity: 0.9,
   },
@@ -809,8 +752,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   trendingCategoryText: {
-    fontSize: SIZE.moderateScale(9), // Reduced from 10
-    fontFamily: FONTS.parkinsansMedium,
+    ...GlobalStyles.textMedium9,
     color: COLOR.walletHistoryGrey,
     marginTop: SIZE.moderateScale(4),
     textAlign: 'center',
@@ -830,18 +772,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: SIZE.moderateScale(8),
   },
   sectionTitle: {
-    fontSize: FONT_SIZE.font18,
-    fontFamily: FONTS.parkinsansBold,
+    ...GlobalStyles.textBold18,
     color: COLOR.dark,
   },
   seeAllText: {
-    fontSize: SIZE.moderateScale(12),
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold12,
     color: COLOR.primary,
   },
   themeToggleText: {
-    fontSize: SIZE.moderateScale(12),
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold12,
     color: COLOR.primary,
   },
   categoriesGrid: {
@@ -850,41 +789,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     marginHorizontal: -SIZE.moderateScale(12),
   },
-  categoryCard: {
-    width: "25%",
-    alignItems: "center",
-    marginBottom: SIZE.moderateScale(20),
-  },
-  categoryIconContainer: {
-    alignItems: "center",
-    width: "100%",
-  },
-  iconContainer: {
-    backgroundColor: "#F9FAFB",
-    borderRadius: SIZE.moderateScale(10),
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: SIZE.moderateScale(8),
-    borderWidth: 1,
-    borderColor: COLOR.walletGray,
-  },
-  twoWordContainer: {
-    alignItems: "center",
-  },
-  categoryWord: {
-    fontSize: SIZE.moderateScale(11), // 11.5 -> 11
-    fontFamily: FONTS.parkinsansMedium,
-    color: COLOR.dark,
-    textAlign: "center",
-    lineHeight: SIZE.moderateScale(14),
-  },
-  categoryName: {
-    fontSize: SIZE.moderateScale(11), // 11.5 -> 11
-    fontFamily: FONTS.parkinsansMedium,
-    color: COLOR.dark,
-    textAlign: "center",
-    lineHeight: SIZE.moderateScale(14),
-  },
+
   // Top Stories Styles - Updated to match image exactly
   storiesList: {
     gap: SIZE.moderateScale(16),
@@ -919,8 +824,7 @@ const styles = StyleSheet.create({
     // No background container
   },
   durationText: {
-    fontSize: SIZE.moderateScale(9), // 10 -> 9
-    fontFamily: FONTS.parkinsansMedium,
+    ...GlobalStyles.textMedium9,
     color: COLOR.white,
     marginLeft: SIZE.moderateScale(4),
     textShadowColor: 'rgba(0, 0, 0, 0.5)',
@@ -935,8 +839,7 @@ const styles = StyleSheet.create({
     paddingVertical: 0,
   },
   storyTitle: {
-    fontSize: FONT_SIZE.font12, // 13 -> 12
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold12,
     color: COLOR.dark,
     lineHeight: SIZE.moderateScale(17),
 
@@ -949,8 +852,7 @@ const styles = StyleSheet.create({
     marginBottom: 'auto', // Push publisher row to bottom
   },
   timeText: {
-    fontSize: SIZE.moderateScale(10), // 11 -> 10
-    fontFamily: FONTS.parkinsansMedium,
+    ...GlobalStyles.textMedium10,
     color: COLOR.walletHistoryGrey,
   },
   dotSeparator: {
@@ -961,8 +863,7 @@ const styles = StyleSheet.create({
     marginHorizontal: SIZE.moderateScale(6),
   },
   viewsText: {
-    fontSize: SIZE.moderateScale(10), // 11 -> 10
-    fontFamily: FONTS.parkinsansMedium,
+    ...GlobalStyles.textMedium10,
     color: COLOR.walletHistoryGrey,
   },
   publisherActionsRow: {
@@ -976,8 +877,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   sourceText: {
-    fontSize: SIZE.moderateScale(9), // 10 -> 9
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold9,
     color: COLOR.dark,
     marginRight: SIZE.moderateScale(4),
   },
@@ -1024,8 +924,7 @@ const categoryStyles = StyleSheet.create({
 
   /* TITLE */
   title: {
-    fontSize: SIZE.moderateScale(11), // 12 -> 11
-    fontFamily: FONTS.parkinsansMedium,
+    ...GlobalStyles.textMedium11,
     color: COLOR.dark, // black-ish
     textAlign: "center",
     lineHeight: SIZE.moderateScale(15),

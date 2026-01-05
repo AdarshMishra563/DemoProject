@@ -511,16 +511,15 @@ const styles = StyleSheet.create({
     marginTop: SIZE.moderateScale(18)
   },
   title: {
+    ...GlobalStyles.textSemiBold22,
     color: COLOR.dark,
-    fontFamily: FONTS.parkinsansSemiBold,
     fontSize: FONT_SIZE.font22 * 1.04,
     lineHeight: SIZE.moderateScale(32),
     marginBottom: SIZE.moderateScale(3),
   },
   subtitle: {
+    ...GlobalStyles.textRegular13,
     color: COLOR.darkGrey,
-    fontFamily: FONTS.parkinsansRegular,
-    fontSize: FONT_SIZE.font13,
     lineHeight: SIZE.moderateScale(22),
     marginTop: SIZE.moderateScale(2),
   },
@@ -530,8 +529,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   logoText: {
+    ...GlobalStyles.textBold22,
     fontSize: FONT_SIZE.font22 * 1.02,
-    fontFamily: FONTS.parkinsansBold,
     letterSpacing: 1,
   },
   logoPart: {
@@ -546,9 +545,8 @@ const styles = StyleSheet.create({
     marginHorizontal: -2
   },
   errorMessage: {
+    ...GlobalStyles.textMedium11,
     color: COLOR.error,
-    fontFamily: FONTS.parkinsansMedium,
-    fontSize: FONT_SIZE.font11,
     height: SIZE.moderateScale(36),
     marginTop: -SIZE.moderateScale(13),
     marginLeft: SIZE.moderateScale(5),
@@ -568,29 +566,25 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   sendOtpText: {
+    ...GlobalStyles.textMedium12,
     color: COLOR.primary,
-    fontFamily: FONTS.parkinsansMedium,
-    fontSize: FONT_SIZE.font12,
     textDecorationLine: 'underline',
   },
   sendingOtpText: {
+    ...GlobalStyles.textMedium12,
     color: COLOR.darkGrey,
-    fontFamily: FONTS.parkinsansMedium,
-    fontSize: FONT_SIZE.font12,
   },
   resendContainer: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   otpSentText: {
+    ...GlobalStyles.textMedium12,
     color: COLOR.darkGrey,
-    fontFamily: FONTS.parkinsansMedium,
-    fontSize: FONT_SIZE.font12,
   },
   resendText: {
+    ...GlobalStyles.textMedium12,
     color: COLOR.primary,
-    fontFamily: FONTS.parkinsansMedium,
-    fontSize: FONT_SIZE.font12,
     textDecorationLine: 'underline',
   },
   verifiedContainer: {
@@ -603,9 +597,8 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   verifiedText: {
+    ...GlobalStyles.textMedium12,
     color: COLOR.success,
-    fontFamily: FONTS.parkinsansMedium,
-    fontSize: FONT_SIZE.font12,
     marginLeft: SIZE.moderateScale(4),
   },
   phoneSuccessContainer: {
@@ -615,9 +608,8 @@ const styles = StyleSheet.create({
     marginLeft: SIZE.moderateScale(5),
   },
   phoneSuccessText: {
+    ...GlobalStyles.textMedium12,
     color: COLOR.success,
-    fontFamily: FONTS.parkinsansMedium,
-    fontSize: FONT_SIZE.font12,
     marginLeft: SIZE.moderateScale(5),
   },
   toggleButton: {
@@ -645,8 +637,7 @@ const styles = StyleSheet.create({
     borderRadius: 6.5
   },
   toggleText: {
-    fontFamily: FONTS.parkinsansMedium,
-    fontSize: FONT_SIZE.font14,
+    ...GlobalStyles.textMedium14,
     color: COLOR.dark,
   },
   toggleTextActive: {
@@ -658,9 +649,8 @@ const styles = StyleSheet.create({
     marginBottom: SIZE.moderateScale(20),
   },
   otpTitle: {
+    ...GlobalStyles.textMedium13,
     color: COLOR.dark,
-    fontFamily: FONTS.parkinsansMedium,
-    fontSize: FONT_SIZE.font13,
     marginBottom: SIZE.moderateScale(10),
   },
   otpInputsContainer: {
@@ -675,7 +665,7 @@ const styles = StyleSheet.create({
     borderColor: COLOR.lightGray,
     borderRadius: SIZE.moderateScale(8),
     textAlign: 'center',
-    fontFamily: FONTS.parkinsansBold,
+    ...GlobalStyles.textBold20,
     fontSize: FONT_SIZE.font20 * 0.8,
     color: COLOR.dark,
     backgroundColor: COLOR.white,
@@ -699,8 +689,7 @@ const styles = StyleSheet.create({
   },
   verifyOtpText: {
     color: COLOR.white,
-    fontFamily: FONTS.parkinsansSemiBold,
-    fontSize: FONT_SIZE.font14,
+    ...GlobalStyles.textSemiBold14,
   },
   termsContainer: {
     marginTop: SIZE.moderateScale(10),
@@ -726,9 +715,8 @@ const styles = StyleSheet.create({
     borderColor: COLOR.primary,
   },
   termText: {
+    ...GlobalStyles.textMedium13,
     color: COLOR.dark,
-    fontFamily: FONTS.parkinsansMedium,
-    fontSize: FONT_SIZE.font13,
     flex: 1,
   },
   termLink: {
@@ -746,9 +734,8 @@ const styles = StyleSheet.create({
     marginBottom: SIZE.moderateScale(10),
   },
   loginText: {
+    ...GlobalStyles.textMedium14,
     color: COLOR.dark,
-    fontFamily: FONTS.parkinsansMedium,
-    fontSize: FONT_SIZE.font14,
   },
   loginLink: {
     color: COLOR.primary,
@@ -761,8 +748,7 @@ const styles = StyleSheet.create({
   },
   verifyPhoneText: {
     color: COLOR.error,
-    fontFamily: FONTS.parkinsansMedium,
-    fontSize: FONT_SIZE.font12,
+    ...GlobalStyles.textMedium12,
     textAlign: 'center',
   },
 });

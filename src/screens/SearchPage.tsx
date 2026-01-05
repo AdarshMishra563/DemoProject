@@ -7,6 +7,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { COLOR, FONT_SIZE, FONTS } from '@utils/Constant';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { GlobalStyles } from '@styles/GlobalCss';
 
 export default function SearchPage() {
   const navigation = useNavigation();
@@ -502,8 +503,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: '100%',
     color: COLOR.dark,
-    fontFamily: FONTS.parkinsansRegular,
-    fontSize: FONT_SIZE.font16,
+    ...GlobalStyles.textRegular16,
   },
   clearButton: {
     padding: 5,
@@ -528,8 +528,7 @@ const styles = StyleSheet.create({
     padding: 15,
   },
   resultsTitle: {
-    fontFamily: FONTS.parkinsansSemiBold,
-    fontSize: FONT_SIZE.font18,
+    ...GlobalStyles.textSemiBold18,
     color: COLOR.dark,
     marginBottom: 15,
   },
@@ -546,8 +545,7 @@ const styles = StyleSheet.create({
   },
   resultText: {
     flex: 1,
-    fontFamily: FONTS.parkinsansMedium,
-    fontSize: FONT_SIZE.font15,
+    ...GlobalStyles.textMedium15,
     color: COLOR.dark,
   },
   highlightedText: {
@@ -564,13 +562,11 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   historyTitle: {
-    fontFamily: FONTS.parkinsansSemiBold,
-    fontSize: FONT_SIZE.font16,
+    ...GlobalStyles.textSemiBold16,
     color: COLOR.dark,
   },
   clearText: {
-    fontFamily: FONTS.parkinsansRegular,
-    fontSize: FONT_SIZE.font14,
+    ...GlobalStyles.textRegular14,
     color: COLOR.primary,
   },
   historyChipsContainer: {
@@ -598,8 +594,7 @@ const styles = StyleSheet.create({
     marginRight: 5,
   },
   historyChipText: {
-    fontFamily: FONTS.parkinsansRegular,
-    fontSize: FONT_SIZE.font14,
+    ...GlobalStyles.textRegular14,
     color: COLOR.dark,
     maxWidth: 150,
   },
@@ -610,8 +605,7 @@ const styles = StyleSheet.create({
     padding: 15,
   },
   sectionTitle: {
-    fontFamily: FONTS.parkinsansSemiBold,
-    fontSize: FONT_SIZE.font16,
+    ...GlobalStyles.textSemiBold16,
     color: COLOR.dark,
     marginBottom: 15,
   },
@@ -631,8 +625,7 @@ const styles = StyleSheet.create({
     marginRight: 5,
   },
   popularText: {
-    fontFamily: FONTS.parkinsansMedium,
-    fontSize: FONT_SIZE.font14,
+    ...GlobalStyles.textMedium14,
     color: COLOR.primary,
   },
   noResultsContainer: {
@@ -642,16 +635,14 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   noResultsText: {
-    fontFamily: FONTS.parkinsansSemiBold,
-    fontSize: FONT_SIZE.font18,
+    ...GlobalStyles.textSemiBold18,
     color: COLOR.dark,
     textAlign: 'center',
     marginTop: 15,
     marginBottom: 5,
   },
   noResultsSubText: {
-    fontFamily: FONTS.parkinsansRegular,
-    fontSize: FONT_SIZE.font14,
+    ...GlobalStyles.textRegular14,
     color: COLOR.darkGrey,
     textAlign: 'center',
   },

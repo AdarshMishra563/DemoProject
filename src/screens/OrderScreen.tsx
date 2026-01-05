@@ -13,6 +13,7 @@ import Feather from "react-native-vector-icons/Feather";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { COLOR, FONTS, FONT_SIZE, SIZE } from "@utils/Constant";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { GlobalStyles } from '@styles/GlobalCss';
 
 // Mock Data combining Subscriptions and Surveys
 const orderData = [
@@ -182,8 +183,7 @@ const styles = StyleSheet.create({
         padding: SIZE.moderateScale(4),
     },
     headerTitle: {
-        fontSize: FONT_SIZE.font18,
-        fontFamily: FONTS.parkinsansSemiBold,
+        ...GlobalStyles.textSemiBold18,
         color: COLOR.dark,
     },
     filterContainer: {
@@ -205,8 +205,7 @@ const styles = StyleSheet.create({
         borderColor: COLOR.primary,
     },
     filterText: {
-        fontSize: FONT_SIZE.font13,
-        fontFamily: FONTS.parkinsansMedium,
+        ...GlobalStyles.textMedium13,
         color: COLOR.darkGrey,
     },
     activeFilterText: {
@@ -245,14 +244,12 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     cardTitle: {
-        fontSize: FONT_SIZE.font14,
-        fontFamily: FONTS.parkinsansSemiBold,
+        ...GlobalStyles.textSemiBold14,
         color: COLOR.dark,
         marginBottom: SIZE.moderateScale(2),
     },
     cardDate: {
-        fontSize: FONT_SIZE.font12,
-        fontFamily: FONTS.parkinsansRegular,
+        ...GlobalStyles.textRegular12,
         color: COLOR.darkGrey,
     },
     statusBadge: {
@@ -261,8 +258,7 @@ const styles = StyleSheet.create({
         borderRadius: SIZE.moderateScale(4),
     },
     statusText: {
-        fontSize: FONT_SIZE.font10,
-        fontFamily: FONTS.parkinsansMedium,
+        ...GlobalStyles.textMedium10,
     },
     divider: {
         height: 1,
@@ -275,13 +271,11 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     typeText: {
-        fontSize: FONT_SIZE.font12,
-        fontFamily: FONTS.parkinsansMedium,
+        ...GlobalStyles.textMedium12,
         color: COLOR.darkGrey,
     },
     priceText: {
-        fontSize: FONT_SIZE.font13,
-        fontFamily: FONTS.parkinsansSemiBold,
+        ...GlobalStyles.textSemiBold13,
         color: COLOR.dark,
     },
 });

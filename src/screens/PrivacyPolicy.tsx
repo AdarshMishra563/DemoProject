@@ -13,6 +13,7 @@ import Icon from 'react-native-vector-icons/Feather';
 import { COLOR, FONTS, FONT_SIZE } from '@utils/Constant';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ScrollContainer } from '@components/common/ScrollContainer';
+import { GlobalStyles } from '@styles/GlobalCss';
 
 const PrivacyPolicyScreen2 = () => {
   const navigation = useNavigation();
@@ -299,8 +300,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#E5E7EB',
   },
   headerTitle: {
-    fontSize: FONT_SIZE.font18,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold18,
     color: COLOR.dark,
   },
   scrollView: {
@@ -315,19 +315,16 @@ const styles = StyleSheet.create({
     marginVertical: 24,
   },
   appName: {
-    fontSize: FONT_SIZE.font28,
-    fontFamily: FONTS.parkinsansBold,
+    ...GlobalStyles.textBold30, // Using 30 as closest to 28
     color: COLOR.primary,
     marginBottom: 4,
   },
   appTagline: {
-    fontSize: FONT_SIZE.font14,
-    fontFamily: FONTS.parkinsansRegular,
+    ...GlobalStyles.textRegular14,
     color: '#6B7280',
   },
   lastUpdated: {
-    fontSize: FONT_SIZE.font12,
-    fontFamily: FONTS.parkinsansMedium,
+    ...GlobalStyles.textMedium12,
     color: '#9CA3AF',
     textAlign: 'center',
     marginBottom: 24,
@@ -341,28 +338,24 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   sectionTitle: {
-    fontSize: FONT_SIZE.font16,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold16,
     color: COLOR.dark,
     marginBottom: 12,
   },
   subsectionTitle: {
-    fontSize: FONT_SIZE.font14,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold14,
     color: '#374151',
     marginTop: 12,
     marginBottom: 6,
   },
   paragraph: {
-    fontSize: FONT_SIZE.font14,
-    fontFamily: FONTS.parkinsansRegular,
+    ...GlobalStyles.textRegular14,
     color: '#4B5563',
     lineHeight: 22,
     marginBottom: 8,
   },
   note: {
-    fontSize: FONT_SIZE.font13,
-    fontFamily: FONTS.parkinsansMedium,
+    ...GlobalStyles.textMedium13,
     color: '#6B7280',
     fontStyle: 'italic',
     backgroundColor: '#FEF3C7',
@@ -374,6 +367,7 @@ const styles = StyleSheet.create({
   },
   link: {
     color: COLOR.primary,
+    // fontFamily: FONTS.parkinsansSemiBold, // link usually inherits size
     fontFamily: FONTS.parkinsansSemiBold,
     textDecorationLine: 'underline',
   },
@@ -386,8 +380,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   complianceTitle: {
-    fontSize: FONT_SIZE.font14,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold14,
     color: COLOR.dark,
     marginBottom: 12,
   },
@@ -401,8 +394,7 @@ const styles = StyleSheet.create({
     borderColor: '#0EA5E9',
   },
   badgeText: {
-    fontSize: FONT_SIZE.font12,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold12,
     color: '#0369A1',
   },
   footerSpace: {
@@ -425,8 +417,7 @@ const styles = StyleSheet.create({
     flex: 3,
   },
   acceptButtonText: {
-    fontSize: FONT_SIZE.font16,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold16,
     color: COLOR.white,
   },
   exportButton: {
@@ -440,8 +431,7 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   exportButtonText: {
-    fontSize: FONT_SIZE.font14,
-    fontFamily: FONTS.parkinsansSemiBold,
+    ...GlobalStyles.textSemiBold14,
     color: COLOR.primary,
   },
 });

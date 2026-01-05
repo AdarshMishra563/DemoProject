@@ -290,9 +290,8 @@ const styles = StyleSheet.create({
     paddingTop: SIZE.moderateScale(20),
   },
   footerText: {
+    ...GlobalStyles.textMedium12,
     color: COLOR.dark,
-    fontFamily: FONTS.parkinsansMedium,
-    fontSize: FONT_SIZE.font12,
     lineHeight: SIZE.moderateScale(18),
     textAlign: 'center',
   },
@@ -322,14 +321,12 @@ const styles = StyleSheet.create({
     borderColor: COLOR.primary,
   },
   rememberMeText: {
+    ...GlobalStyles.textMedium12,
     color: COLOR.dark,
-    fontFamily: FONTS.parkinsansMedium,
-    fontSize: FONT_SIZE.font12,
   },
   forgotPasswordText: {
+    ...GlobalStyles.textMedium12,
     color: COLOR.primary,
-    fontFamily: FONTS.parkinsansMedium,
-    fontSize: FONT_SIZE.font12,
     textDecorationLine: 'underline',
   },
   loginHeader: {
@@ -352,8 +349,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   logoText: {
+    ...GlobalStyles.textBold22,
     fontSize: FONT_SIZE.font22 * 1.02,
-    fontFamily: FONTS.parkinsansBold,
     letterSpacing: 1,
   },
   logoPart: {
@@ -368,9 +365,8 @@ const styles = StyleSheet.create({
     marginTop: SIZE.moderateScale(30),
   },
   signupText: {
+    ...GlobalStyles.textMedium14,
     color: COLOR.dark,
-    fontFamily: FONTS.parkinsansMedium,
-    fontSize: FONT_SIZE.font14,
   },
   signupLink: {
     color: COLOR.primary,
@@ -378,15 +374,14 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
   },
   subtitle: {
+    ...GlobalStyles.textRegular13,
     color: COLOR.darkGrey,
-    fontFamily: FONTS.parkinsansRegular,
-    fontSize: FONT_SIZE.font13,
     lineHeight: SIZE.moderateScale(22),
     marginTop: SIZE.moderateScale(2),
   },
   title: {
+    ...GlobalStyles.textSemiBold22, // 1.04 scale?
     color: COLOR.dark,
-    fontFamily: FONTS.parkinsansSemiBold,
     fontSize: FONT_SIZE.font22 * 1.04,
     lineHeight: SIZE.moderateScale(32),
     marginBottom: SIZE.moderateScale(3),
@@ -428,8 +423,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLOR.primary, borderRadius: 6.5
   },
   toggleText: {
-    fontFamily: FONTS.parkinsansMedium,
-    fontSize: FONT_SIZE.font14,
+    ...GlobalStyles.textMedium14,
     color: COLOR.dark,
   },
   toggleTextActive: {

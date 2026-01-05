@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import { ScrollContainer } from '@components/common/ScrollContainer';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { GlobalStyles } from '@styles/GlobalCss';
 
 const plans = [
   {
@@ -136,8 +137,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   headerTitle: {
-    fontSize: FONT_SIZE.font18,
-    fontFamily: FONTS.parkinsansBold,
+    ...GlobalStyles.textBold18,
     color: COLOR.dark,
   },
 
@@ -153,24 +153,21 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontSize: FONT_SIZE.font20, // 22 -> 20
-    fontFamily: FONTS.parkinsansBold,
+    ...GlobalStyles.textBold20,
     color: COLOR.dark,
     lineHeight: SIZE.moderateScale(28),
     marginBottom: SIZE.moderateScale(8), // 12 -> 8
   },
 
   subtitle: {
-    fontSize: FONT_SIZE.font14, // 15 -> 14
+    ...GlobalStyles.textRegular14,
     color: COLOR.walletHistoryGrey,
-    fontFamily: FONTS.parkinsansRegular,
     lineHeight: SIZE.moderateScale(20),
     marginBottom: 28,
   },
 
   sectionHeader: {
-    fontSize: FONT_SIZE.font15, // 16 -> 15
-    fontFamily: FONTS.parkinsansBold,
+    ...GlobalStyles.textBold15,
     color: COLOR.dark,
     marginBottom: SIZE.moderateScale(12), // 16 -> 12
   },
@@ -188,15 +185,13 @@ const styles = StyleSheet.create({
   },
 
   planTitle: {
-    fontSize: SIZE.moderateScale(12), // 13 -> 12
-    fontFamily: FONTS.parkinsansBold,
+    ...GlobalStyles.textBold12,
     color: COLOR.dark,
     marginBottom: SIZE.moderateScale(2),
   },
 
   planSubtitle: {
-    fontSize: SIZE.moderateScale(11), // 12 -> 11
-    fontFamily: FONTS.parkinsansRegular,
+    ...GlobalStyles.textRegular11,
     color: COLOR.walletHistoryGrey,
     marginBottom: SIZE.moderateScale(10), // 14 -> 10
   },
@@ -209,15 +204,13 @@ const styles = StyleSheet.create({
   },
 
   price: {
-    fontSize: FONT_SIZE.font24, // 28 -> 24
-    fontFamily: FONTS.parkinsansBold,
+    ...GlobalStyles.textBold24,
     color: COLOR.dark,
   },
 
   oldPrice: {
-    fontSize: SIZE.moderateScale(12), // 13 -> 12
-    color: COLOR.grayLight,
-    fontFamily: FONTS.parkinsansRegular,
+    ...GlobalStyles.textRegular12,
+    color: COLOR.walletHistoryGrey,
     textDecorationLine: 'line-through',
   },
 
@@ -230,8 +223,7 @@ const styles = StyleSheet.create({
   },
 
   discountText: {
-    fontSize: SIZE.moderateScale(10), // 11 -> 10
-    fontFamily: FONTS.parkinsansBold,
+    ...GlobalStyles.textBold10,
     color: COLOR.dark,
   },
 
@@ -246,14 +238,12 @@ const styles = StyleSheet.create({
   },
 
   subscribeText: {
-    color: COLOR.white,
-    fontSize: SIZE.moderateScale(13), // 15 -> 13
-    fontFamily: FONTS.parkinsansBold,
+
+    ...GlobalStyles.textBold13, color: COLOR.white
   },
 
   footer: {
-    fontSize: FONT_SIZE.font11, // 12 -> 11
-    fontFamily: FONTS.parkinsansRegular,
+    ...GlobalStyles.textRegular11,
     color: COLOR.walletHistoryGrey,
     textAlign: 'center',
     marginTop: 20,
