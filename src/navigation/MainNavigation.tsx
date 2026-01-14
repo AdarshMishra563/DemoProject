@@ -48,6 +48,8 @@ import TermsAndConditionsScreen from '@screens/TermsAndConditions';
 import PrivacyPolicyScreen2 from '@screens/PrivacyPolicy';
 import CheckoutSummaryScreen2 from '@screens/CheckoutSummary2';
 import CategorySectionScreen from '@screens/CategorySection';
+import SurveyScreen from '@screens/SurveyScreen';
+import SurveyResultScreen from '@screens/SurveyResultScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -158,6 +160,8 @@ const AppNavigation = () => {
             <Stack.Screen name="NewsDetail" component={SubscriptionScreen} />
 
             <Stack.Screen name="SurveyDetails" component={SurveyDetailsScreen} />
+            <Stack.Screen name="SurveyScreen" component={SurveyScreen} />
+            <Stack.Screen name="SurveyResultScreen" component={SurveyResultScreen} />
             <Stack.Screen name="Checkout" component={CheckoutScreen} />
             <Stack.Screen name="Checkout2" component={CheckoutSummaryScreen} />
             <Stack.Screen name="CheckoutSummary2" component={CheckoutSummaryScreen2} />

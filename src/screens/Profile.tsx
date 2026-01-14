@@ -65,11 +65,16 @@ const ProfileScreen: React.FC = () => {
 
   const secondGroup: MenuItem[] = [
     {
+      id: 2.5,
+      title: "Prev Surveys",
+      icon: <Ionicons name="document-text-outline" size={22} color="#374151" />,
+      onPress: () => navigate('SurveyDetails'),
+    },
+    {
       id: 3,
-      title: "Prev Surveys",  // Changed from "Language" to "Prev Surveys"
-      icon: <Ionicons name="document-text-outline" size={22} color="#374151" />,  // Changed icon to document/text icon
-      onPress: () => navigate('Checkout'),  // Changed to show alert
-
+      title: "Start Survey",  // Link to new Survey Screen
+      icon: <Ionicons name="play-circle-outline" size={22} color="#374151" />,
+      onPress: () => navigate('SurveyScreen'),
     },
     {
       id: 3.5,
